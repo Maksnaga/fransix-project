@@ -1,0 +1,27 @@
+<div class="fra__header">
+  <div class="fra__header-left">
+    <h1>François Moiroux</h1>
+  </div>
+  <div class="fra__header-center">
+    @for (menuOption of homePageMenu; track menuOption.name) {
+    <a
+      class="menu-chip link-active"
+      [class.active]="activeMenu == menuOption.name"
+      (click)="handleMenuItemClick(menuOption.name); onClick(menuOption.id)"
+      >{{ menuOption.name }}</a
+    >
+    }
+  </div>
+  <div class="fra__header-right">
+    <p-button
+      class="fra__form-access-button"
+      label="Commencer ma simulation"
+      icon="pi pi-bolt"
+      severity="info"
+      iconPos="right"
+    ></p-button>
+  </div>
+</div>
+<div #main class="fra__section-main"></div>
+<div #service class="fra__section-service"></div>
+<div #who class="fra__section-who"></div>

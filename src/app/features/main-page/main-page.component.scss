@@ -1,0 +1,91 @@
+.fra {
+    &__header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--BlueGray-BlueGray-800, #1e293b);
+        background: linear-gradient(97deg, #0f172a -17.22%, #0d1b3f 156.6%);
+
+        &-left {
+            color: var(--Base-White, #fff);
+            margin-left: 24px;
+            font-family: "Urbanist", sans-serif;
+        }
+
+        &-center {
+            color: var(--BlueGray-BlueGray-400, #94a3b8);
+            display: flex;
+            font-family: "Urbanist", sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            justify-content: center;
+            gap: 10px;
+        }
+        &-right {
+            margin-right: 24px;
+        }
+    }
+
+    &__section {
+        &-main {
+            height: 100vh;
+            background-color: #0d1b3f;
+        }
+        &-service {
+            background-color: #1e293b;
+            height: 500px;
+        }
+        &-who {
+            background-color: #0f172a;
+            height: 500px;
+        }
+    }
+}
+
+.link-active {
+    position: relative;
+    text-align: center;
+    &.active {
+        color: white;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -10px; /* Ajustez cette valeur pour déplacer le point vers le haut ou vers le bas */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: #67e8f9; /* Couleur du point */
+            border-radius: 50%;
+        }
+    }
+    &:hover {
+        color: white;
+        cursor: pointer;
+    }
+}
+
+:host ::ng-deep {
+    .p-button.p-button-info,
+    .p-buttonset.p-button-info > .p-button,
+    .p-splitbutton.p-button-info > .p-button {
+        background: #0e7490 !important;
+        border: #0e7490 !important;
+    }
+    .p-button.p-button-info:not(:disabled):hover,
+    .p-buttonset.p-button-info > .p-button:not(:disabled):hover,
+    .p-splitbutton.p-button-info > .p-button:not(:disabled):hover {
+        background: #0b5f76 !important;
+        border: #0b5f76 !important;
+    }
+}
