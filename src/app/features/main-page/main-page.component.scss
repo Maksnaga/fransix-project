@@ -48,6 +48,7 @@
                 auto 100%,
                 cover;
             display: flex;
+            position: relative;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -78,6 +79,24 @@
             &-buttons {
                 gap: 1rem;
                 display: flex;
+            }
+            &-bottom-right {
+                position: absolute;
+                right: 48px;
+                bottom: 32px;
+                color: #0b5f76;
+                &-text {
+                    color: var(--Base-White, #fff);
+                    font-family: "Urbanist", sans-serif;
+                    font-size: 10px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-align: right;
+                    justify-content: end;
+                    display: flex;
+                    align-items: center;
+                }
             }
         }
         &-service {
@@ -130,6 +149,14 @@
     .p-splitbutton.p-button-info > .p-button:not(:disabled):hover {
         background: #0b5f76 !important;
         border: #0b5f76 !important;
+    }
+
+    .p-tag-warning {
+        background: rgba(253, 224, 71, 0.2) !important;
+        color: #fef08a !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        border: 1px solid #fef08a !important;
     }
 
     .p-tag-danger {
