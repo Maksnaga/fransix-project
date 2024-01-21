@@ -14,7 +14,6 @@
   </div>
   <div class="fra__header-right">
     <p-button
-      class="fra__form-access-button"
       label="Commencer ma simulation"
       icon="pi pi-bolt"
       severity="info"
@@ -22,6 +21,34 @@
     ></p-button>
   </div>
 </div>
-<div #main class="fra__section-main"></div>
-<div #service class="fra__section-service"></div>
-<div #who class="fra__section-who"></div>
+<div #main id="main" class="fra__section-main">
+  <div class="fra__section-main-tag">
+    <p-tag
+      icon="pi pi-heart"
+      value="Une expertise humaine"
+      severity="danger"
+    ></p-tag>
+  </div>
+  <span class="fra__section-main-desc"
+    >Construisons <span style="font-style: italic">votre avenir </span>financier
+    ensemble</span
+  >
+  <span class="fra__section-main-subdesc"
+    >votre patrimoine, votre histoire</span
+  >
+  <div class="d-flex justify-content-between w-50 fra__section-main-buttons">
+    <p-button
+      label="Commencer ma simulation"
+      icon="pi pi-bolt"
+      severity="info"
+      iconPos="right"
+    ></p-button>
+    <p-button
+      label="Qui suis-je ?"
+      [outlined]="true"
+      severity="secondary"
+    ></p-button>
+  </div>
+</div>
+<div #service id="service" class="fra__section-service"></div>
+<div #who id="who" class="fra__section-who"></div>

@@ -1,9 +1,15 @@
 .fra {
     &__header {
         position: fixed;
+        margin-left: 22px;
+        margin-right: 22px;
+        margin-top: 24px;
         top: 0;
         left: 0;
         right: 0;
+        z-index: 1;
+        border: 1px solid var(--BlueGray-BlueGray-800, #1e293b);
+        border-radius: var(--8, 16px);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -41,14 +47,46 @@
             background-size:
                 auto 100%,
                 cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            &-desc {
+                text-align: center;
+                font-family: "Urbanist", sans-serif;
+                font-size: 64px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                width: 756px;
+                color: white;
+            }
+            &-subdesc {
+                color: var(--Cyan-Cyan-300, #67e8f9);
+                text-align: center;
+                font-family: "Urbanist", sans-serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 36px;
+                padding-top: 1rem;
+                padding-bottom: 2rem;
+            }
+            &-tag {
+                padding-bottom: 1rem;
+            }
+            &-buttons {
+                gap: 1rem;
+                display: flex;
+            }
         }
         &-service {
             background-color: #1e293b;
-            height: 500px;
+            height: 800px;
         }
         &-who {
             background-color: #0f172a;
-            height: 500px;
+            height: 800px;
         }
     }
 }
@@ -92,5 +130,14 @@
     .p-splitbutton.p-button-info > .p-button:not(:disabled):hover {
         background: #0b5f76 !important;
         border: #0b5f76 !important;
+    }
+
+    .p-tag-danger {
+        border-radius: 32px !important;
+        background: #f63b3b00 !important;
+        color: #fff !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        border: 1px solid red !important;
     }
 }
