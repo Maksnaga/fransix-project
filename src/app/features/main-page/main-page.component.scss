@@ -108,6 +108,18 @@
                 position: absolute;
                 transform: translate(-270px, 75px);
             }
+            &-vector-img {
+                position: absolute;
+                transform: translate(180px, -40px);
+            }
+            &-misc01-img {
+                position: absolute;
+                transform: translate(396px, -118px);
+            }
+            &-misc02-img {
+                position: absolute;
+                transform: translate(374px, -105px);
+            }
         }
         &-service {
             background-color: #1e293b;
