@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { TagModule } from 'primeng/tag';
@@ -14,6 +14,8 @@ export class MainPageComponent implements AfterViewInit {
   @ViewChild('main') mainSection!: ElementRef;
   @ViewChild('service') serviceSection!: ElementRef;
   @ViewChild('who') whoSection!: ElementRef;
+  @ViewChild('divCard') divCard!: ElementRef;
+
   private isClicked = false;
   public activeMenu = 'Accueil';
   public homePageMenu = [
@@ -30,19 +32,35 @@ export class MainPageComponent implements AfterViewInit {
       id: 'who',
     },
   ];
+  mots: string[] = ['protections', 'famille', 'retraite', 'épargne', 'patrimoine', 'protection'];
+
+  constructor(private renderer: Renderer2) { }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    if (this.isOverflow()) {
+      this.applyOverflowStyles()
+    } else {
+      this.removeOverflowStyles()
+    }
+  }
 
   ngAfterViewInit(): void {
     this.mainSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
     this.observeSection(this.mainSection);
     this.observeSection(this.serviceSection);
     this.observeSection(this.whoSection);
+    if (this.isOverflow()) {
+      this.applyOverflowStyles()
+    } else {
+      this.removeOverflowStyles()
+    }
   }
 
   private observeSection(section: ElementRef): void {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (this.isClicked) {
-          // Ignorez l'intersection si le menu a été cliqué
           return;
         }
 
@@ -83,4 +101,24 @@ export class MainPageComponent implements AfterViewInit {
         break;
     }
   }
+
+  public isOverflow(): boolean {
+    const element = this.divCard.nativeElement;
+    const isOverflowX = element.scrollWidth > window.innerWidth;
+    const isOverflowY = element.scrollHeight > window.innerHeight;
+    if (isOverflowX || isOverflowY) {
+      return true;
+    }
+    return false;
+  }
+
+
+  public applyOverflowStyles(): void {
+    this.renderer.setStyle(this.divCard.nativeElement, 'justify-content', 'unset');
+  }
+
+  public removeOverflowStyles(): void {
+    this.renderer.setStyle(this.divCard.nativeElement, 'justify-content', 'center');
+  }
+
 }
