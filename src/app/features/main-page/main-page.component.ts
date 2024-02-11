@@ -13,7 +13,7 @@ import { TagModule } from 'primeng/tag';
 export class MainPageComponent implements AfterViewInit {
   @ViewChild('main') mainSection!: ElementRef;
   @ViewChild('service') serviceSection!: ElementRef;
-  @ViewChild('who') whoSection!: ElementRef;
+  @ViewChild('footer') footerSection!: ElementRef;
   @ViewChild('divCard') divCard!: ElementRef;
 
   private isClicked = false;
@@ -29,7 +29,7 @@ export class MainPageComponent implements AfterViewInit {
     },
     {
       name: 'Qui suis-je ?',
-      id: 'who',
+      id: 'footer',
     },
   ];
   mots: string[] = ['protections', 'famille', 'retraite', 'épargne', 'patrimoine', 'protection'];
@@ -49,7 +49,7 @@ export class MainPageComponent implements AfterViewInit {
     this.mainSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
     this.observeSection(this.mainSection);
     this.observeSection(this.serviceSection);
-    this.observeSection(this.whoSection);
+    this.observeSection(this.footerSection);
     if (this.isOverflow()) {
       this.applyOverflowStyles()
     } else {
@@ -88,8 +88,8 @@ export class MainPageComponent implements AfterViewInit {
 
   public onClick(elementId: string): void {
     switch (elementId) {
-      case 'who':
-        this.whoSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      case 'footer':
+        this.footerSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'service':
         this.serviceSection.nativeElement.scrollIntoView({
