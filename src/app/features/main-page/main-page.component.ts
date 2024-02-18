@@ -2,11 +2,20 @@ import { AfterViewInit, Component, ElementRef, HostListener, Renderer2, ViewChil
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { TagModule } from 'primeng/tag';
+import { NumbersComponent } from './components/numbers/numbers.component';
+import { ContentComponent } from './components/content/content.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { BlueboxComponent } from './components/bluebox/bluebox.component';
+import { FormComponent } from './components/form/form.component';
+import { BeginComponent } from './components/begin/begin.component';
+import { MainComponent } from './components/main/main.component';
+import { HeadbandComponent } from './components/headband/headband.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [ButtonModule, RouterModule, TagModule],
+  imports: [ButtonModule, RouterModule, TagModule, NumbersComponent, ContentComponent, CardsComponent, BlueboxComponent, FormComponent, BeginComponent, MainComponent, HeadbandComponent, FooterComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })

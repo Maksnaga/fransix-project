@@ -1,0 +1,90 @@
+.fra {
+    &__section {
+        &-main {
+            height: 100vh;
+            background-image: url("../../../../../assets/main_background.svg"), linear-gradient(#0a101f, #0a101f);
+            background-repeat: no-repeat, repeat;
+            background-position: center center;
+            background-size:
+                auto 100%,
+                cover;
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            &-desc {
+                text-align: center;
+                font-family: "Urbanist", sans-serif;
+                font-size: 64px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                width: 756px;
+                color: white;
+            }
+
+            &-subdesc {
+                color: var(--Cyan-Cyan-300, #67e8f9);
+                text-align: center;
+                font-family: "Urbanist", sans-serif;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 36px;
+                padding-top: 1rem;
+                padding-bottom: 2rem;
+            }
+
+            &-tag {
+                padding-bottom: 1rem;
+            }
+
+            &-buttons {
+                gap: 1rem;
+                display: flex;
+            }
+
+            &-bottom-right {
+                position: absolute;
+                right: 48px;
+                bottom: 32px;
+                color: #0b5f76;
+
+                &-text {
+                    color: var(--Base-White, #fff);
+                    font-family: "Urbanist", sans-serif;
+                    font-size: 10px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-align: right;
+                    justify-content: flex-end;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            &-arrow-img {
+                position: absolute;
+                transform: translate(-290px, 75px);
+            }
+
+            &-vector-img {
+                position: absolute;
+                transform: translate(180px, -40px);
+            }
+
+            &-misc01-img {
+                position: absolute;
+                transform: translate(396px, -118px);
+            }
+
+            &-misc02-img {
+                position: absolute;
+                transform: translate(374px, -105px);
+            }
+        }
+    }
+}

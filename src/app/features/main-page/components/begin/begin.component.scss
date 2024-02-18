@@ -1,0 +1,53 @@
+.fra {
+    &__section {
+        &-service {
+            &-begin {
+                display: flex;
+                padding: 128px 48px;
+                justify-content: center;
+                align-items: center;
+                gap: var(--Component-Padding-6xLarge, 64px);
+                align-self: stretch;
+
+                &--text {
+                    display: grid;
+                }
+
+                &--text1 {
+                    color: var(--Cyan-Cyan-900, #164E63);
+                    text-align: center;
+                    font-family: Urbanist;
+                    font-size: 64px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    align-self: stretch;
+                }
+
+                &--text2 {
+                    color: var(--Cyan-Cyan-600, #0891B2);
+                    text-align: center;
+                    font-family: Urbanist;
+                    font-size: 64px;
+                    font-style: italic;
+                    font-weight: 600;
+                    line-height: normal;
+                    align-self: stretch;
+                }
+
+                &--content {
+                    display: flex;
+                    width: 1280px;
+                    padding: 56px 48px;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 32px;
+                    align-self: stretch;
+                    border-radius: var(--8, 16px);
+                    background: var(--BlueGray-BlueGray-100, #F1F5F9);
+                }
+
+            }
+        }
+    }
+}

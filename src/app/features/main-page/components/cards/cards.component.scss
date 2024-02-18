@@ -1,0 +1,100 @@
+.fra {
+    &__section {
+        &-service {
+            &-card {
+                display: flex;
+                width: 504px;
+                min-width: 504px;
+                padding: 40px 48px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 32px;
+
+                &-yellow {
+                    border-radius: var(--11, 24px);
+                    background: var(--Yellow-Yellow-100, #FEF9C3);
+                }
+
+                &-red {
+                    border-radius: var(--11, 24px);
+                    background: var(--Red-Red-100, #FEE2E2);
+                }
+
+                &-blue {
+                    border-radius: var(--11, 24px);
+                    background: var(--Cyan-Cyan-100, #CFFAFE);
+                }
+
+                &-icon {
+                    display: flex;
+                    padding: 16px;
+                    align-items: flex-start;
+                    gap: 8px;
+                    border-radius: var(--4, 8px);
+
+                    &-yellow {
+                        border: var(--2, 4px) solid var(--Yellow-Yellow-300, #FDE047);
+                        background: var(--Base-White, #FFF);
+                    }
+
+                    &-red {
+                        border: var(--2, 4px) solid var(--Red-Red-300, #FCA5A5);
+                        background: var(--Base-White, #FFF);
+                    }
+
+                    &-blue {
+                        border: var(--2, 4px) solid var(--Cyan-Cyan-300, #67E8F9);
+                        background: var(--Base-White, #FFF);
+                    }
+                }
+
+                &-title {
+                    color: var(--Base-Black, #000);
+                    font-family: Urbanist;
+                    font-size: 32px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+
+                &-description {
+                    color: var(--Gray-Gray-600, #4B5563);
+                    font-family: Urbanist;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 170%;
+                }
+            }
+
+            &-cards {
+                display: flex;
+                padding: 128px 48px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: var(--Component-Padding-6xLarge, 64px);
+
+                &-title {
+                    color: var(--BlueGray-BlueGray-900, #0F172A);
+                    text-align: center;
+                    font-family: Urbanist;
+                    font-size: 48px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+
+                &-content {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 32px;
+                    align-self: stretch;
+                    overflow: auto;
+
+                }
+            }
+        }
+    }
+}

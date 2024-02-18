@@ -1,0 +1,53 @@
+.fra {
+    &__section {
+        &-service {
+
+            &-divider {
+                height: 50%;
+                border: 1px dashed #94A3B8;
+            }
+
+            &-numbers {
+                display: flex;
+                gap: 48px;
+                justify-content: center;
+                height: 489px;
+                align-items: center;
+                background: var(--BlueGray-BlueGray-100, #F1F5F9);
+
+                &-title {
+                    color: var(--BlueGray-BlueGray-900, #0F172A);
+                    font-family: Urbanist;
+                    font-size: 96px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    display: flex;
+                    text-align: center;
+                    justify-content: center;
+                }
+
+                &-content {
+                    color: var(--BlueGray-BlueGray-600, #475569);
+                    font-family: Urbanist;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 170%;
+                    max-width: 330px;
+                }
+
+                &-percent {
+                    color: var(--BlueGray-BlueGray-900, #0F172A);
+                    font-family: Urbanist;
+                    font-size: 48px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    margin-top: 16px;
+                }
+            }
+
+        }
+    }
+}
