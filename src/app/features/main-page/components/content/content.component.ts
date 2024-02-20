@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-content',
@@ -9,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class ContentComponent {
 
+  constructor(private renderer: Renderer2, private elem: ElementRef) { }
+
+  ngAfterViewInit() {
+
+  }
 }

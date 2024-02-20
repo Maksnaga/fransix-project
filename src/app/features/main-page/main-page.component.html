@@ -15,16 +15,18 @@
 <div #main id="main">
   <app-main></app-main>
 </div>
-<div #service id="service" class="fra__section-service">
-  <app-headband></app-headband>
+<div class="fra__section-service">
+  <div #who id="who">
+    <app-headband></app-headband>
+  </div>
   <app-numbers></app-numbers>
   <app-content></app-content>
   <app-cards></app-cards>
   <app-bluebox></app-bluebox>
-  <app-form></app-form>
+  <div #service id="service">
+    <app-form></app-form>
+  </div>
   <app-begin></app-begin>
 </div>
 
-<div #footer id="footer">
-  <app-footer></app-footer>
-</div>
+<app-footer></app-footer>

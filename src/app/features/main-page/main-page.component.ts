@@ -22,8 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
 export class MainPageComponent implements AfterViewInit {
   @ViewChild('main') mainSection!: ElementRef;
   @ViewChild('service') serviceSection!: ElementRef;
-  @ViewChild('footer') footerSection!: ElementRef;
-  @ViewChild('divCard') divCard!: ElementRef;
+  @ViewChild('who') footerSection!: ElementRef;
 
   private isClicked = false;
   public activeMenu = 'Accueil';
@@ -33,37 +32,22 @@ export class MainPageComponent implements AfterViewInit {
       id: 'main',
     },
     {
-      name: 'Mes services',
-      id: 'service',
+      name: 'Qui suis-je ?',
+      id: 'who',
     },
     {
-      name: 'Qui suis-je ?',
-      id: 'footer',
+      name: 'Mes services',
+      id: 'service',
     },
   ];
   mots: string[] = ['protections', 'famille', 'retraite', 'épargne', 'patrimoine', 'protection'];
 
-  constructor(private renderer: Renderer2) { }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(): void {
-    if (this.isOverflow()) {
-      this.applyOverflowStyles()
-    } else {
-      this.removeOverflowStyles()
-    }
-  }
 
   ngAfterViewInit(): void {
     this.mainSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
     this.observeSection(this.mainSection);
     this.observeSection(this.serviceSection);
     this.observeSection(this.footerSection);
-    if (this.isOverflow()) {
-      this.applyOverflowStyles()
-    } else {
-      this.removeOverflowStyles()
-    }
   }
 
   private observeSection(section: ElementRef): void {
@@ -97,7 +81,7 @@ export class MainPageComponent implements AfterViewInit {
 
   public onClick(elementId: string): void {
     switch (elementId) {
-      case 'footer':
+      case 'who':
         this.footerSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
         break;
       case 'service':
@@ -111,23 +95,5 @@ export class MainPageComponent implements AfterViewInit {
     }
   }
 
-  public isOverflow(): boolean {
-    const element = this.divCard.nativeElement;
-    const isOverflowX = element.scrollWidth > window.innerWidth;
-    const isOverflowY = element.scrollHeight > window.innerHeight;
-    if (isOverflowX || isOverflowY) {
-      return true;
-    }
-    return false;
-  }
-
-
-  public applyOverflowStyles(): void {
-    this.renderer.setStyle(this.divCard.nativeElement, 'justify-content', 'unset');
-  }
-
-  public removeOverflowStyles(): void {
-    this.renderer.setStyle(this.divCard.nativeElement, 'justify-content', 'center');
-  }
 
 }
