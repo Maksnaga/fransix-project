@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { TagModule } from 'primeng/tag';
@@ -15,7 +22,20 @@ import { FooterComponent } from './components/footer/footer.component';
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [ButtonModule, RouterModule, TagModule, NumbersComponent, ContentComponent, CardsComponent, BlueboxComponent, FormComponent, BeginComponent, MainComponent, HeadbandComponent, FooterComponent],
+  imports: [
+    ButtonModule,
+    RouterModule,
+    TagModule,
+    NumbersComponent,
+    ContentComponent,
+    CardsComponent,
+    BlueboxComponent,
+    FormComponent,
+    BeginComponent,
+    MainComponent,
+    HeadbandComponent,
+    FooterComponent,
+  ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -40,8 +60,14 @@ export class MainPageComponent implements AfterViewInit {
       id: 'service',
     },
   ];
-  mots: string[] = ['protections', 'famille', 'retraite', 'épargne', 'patrimoine', 'protection'];
-
+  mots: string[] = [
+    'protections',
+    'famille',
+    'retraite',
+    'épargne',
+    'patrimoine',
+    'protection',
+  ];
 
   ngAfterViewInit(): void {
     this.mainSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
@@ -62,7 +88,7 @@ export class MainPageComponent implements AfterViewInit {
         );
 
         if (entry.isIntersecting) {
-          this.activeMenu = menuOption?.name || '';
+          this.activeMenu = menuOption?.name ?? '';
         }
       },
       { threshold: 0.7 }
@@ -94,6 +120,4 @@ export class MainPageComponent implements AfterViewInit {
         break;
     }
   }
-
-
 }

@@ -1,58 +1,64 @@
 .fra {
-    &__section {
-        &-service {
-            &-form {
-                display: flex;
-                height: 878px;
-                padding: var(--Component-Padding-6xLarge, 64px) 48px;
-                flex-direction: column;
-                align-items: center;
-                gap: 32px;
-                align-self: stretch;
-                background: var(--Cyan-Cyan-50, #ECFEFF);
+  &__section {
+    &-service {
+      &-form {
+        display: flex;
+        height: 878px;
+        padding: var(--Component-Padding-6xLarge, 64px) 48px;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        align-self: stretch;
+        background: var(--Cyan-Cyan-50, #ecfeff);
 
-                &--title {
-                    color: var(--Cyan-Cyan-900, #164E63);
-                    font-family: Urbanist;
-                    font-size: 48px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: normal;
-                }
-
-                &--description {
-                    position: absolute;
-                    display: flex;
-                    width: 1280px;
-                    height: 660px;
-                    padding: 276px var(--11, 24px);
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    gap: var(--11, 24px);
-
-                    span {
-                        color: var(--BlueGray-BlueGray-50, #F8FAFC);
-                        text-align: center;
-                        font-family: Urbanist;
-                        font-size: 32px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: 130%;
-                        align-self: stretch;
-                    }
-
-                    &-icon {
-                        color: var(--Base-Black, #000);
-                        text-align: center;
-                        font-family: Urbanist;
-                        font-size: 32px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: 130%;
-                    }
-                }
-            }
+        &--title {
+          color: var(--Cyan-Cyan-900, #164e63);
+          font-family: Urbanist, sans-serif;
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          align-self: stretch;
         }
+
+        &--description {
+          position: absolute;
+          display: flex;
+          width: 1280px;
+          height: 660px;
+          padding: 276px var(--11, 24px);
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: var(--11, 24px);
+
+          span {
+            color: var(--BlueGray-BlueGray-50, #f8fafc);
+            text-align: center;
+            font-family: Urbanist, sans-serif;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 130%;
+            align-self: stretch;
+          }
+
+          &-icon {
+            color: var(--Base-Black, #000);
+            text-align: center;
+            font-family: Urbanist, sans-serif;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 130%;
+          }
+        }
+
+        &--content {
+          gap: 32px;
+          display: grid;
+        }
+      }
     }
+  }
 }
