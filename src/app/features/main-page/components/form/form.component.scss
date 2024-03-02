@@ -3,7 +3,6 @@
     &-service {
       &-form {
         display: flex;
-        height: 878px;
         padding: var(--Component-Padding-6xLarge, 64px) 48px;
         flex-direction: column;
         align-items: center;
@@ -24,13 +23,16 @@
         &--description {
           position: absolute;
           display: flex;
-          width: 1280px;
+          width: calc(100% - 96px);
           height: 660px;
-          padding: 276px var(--11, 24px);
           flex-direction: column;
           justify-content: center;
           align-items: center;
           gap: var(--11, 24px);
+
+          &-img {
+            width: 100%;
+          }
 
           span {
             color: var(--BlueGray-BlueGray-50, #f8fafc);

@@ -1,53 +1,90 @@
 .fra {
-    &__section {
-        &-service {
+  &__section {
+    &-service {
+      &-divider {
+        height: 100%;
+        border: 1px dashed #94a3b8;
+      }
 
-            &-divider {
-                height: 50%;
-                border: 1px dashed #94A3B8;
-            }
+      &-numbers {
+        display: flex;
+        width: 100%;
+        padding: 128px 48px;
+        align-items: flex-start;
+        gap: 48px;
+        justify-content: center;
+        height: 504px;
+        background: var(--BlueGray-BlueGray-100, #f1f5f9);
 
-            &-numbers {
-                display: flex;
-                gap: 48px;
-                justify-content: center;
-                height: 489px;
-                align-items: center;
-                background: var(--BlueGray-BlueGray-100, #F1F5F9);
-
-                &-title {
-                    color: var(--BlueGray-BlueGray-900, #0F172A);
-                    font-family: Urbanist;
-                    font-size: 96px;
-                    font-style: normal;
-                    font-weight: 400;
-                    line-height: normal;
-                    display: flex;
-                    text-align: center;
-                    justify-content: center;
-                }
-
-                &-content {
-                    color: var(--BlueGray-BlueGray-600, #475569);
-                    font-family: Urbanist;
-                    font-size: 20px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 170%;
-                    max-width: 330px;
-                }
-
-                &-percent {
-                    color: var(--BlueGray-BlueGray-900, #0F172A);
-                    font-family: Urbanist;
-                    font-size: 48px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: normal;
-                    margin-top: 16px;
-                }
-            }
-
+        &-title {
+          color: var(--BlueGray-BlueGray-900, #0f172a);
+          font-family: "Urbanist", sans-serif;
+          font-size: 96px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          display: flex;
+          text-align: center;
+          justify-content: center;
         }
+
+        &-content {
+          color: var(--BlueGray-BlueGray-600, #475569);
+          font-family: "Urbanist", sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 170%;
+          max-width: 330px;
+        }
+
+        &-percent {
+          color: var(--BlueGray-BlueGray-900, #0f172a);
+          font-family: "Urbanist", sans-serif;
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          margin-top: 16px;
+        }
+      }
     }
+  }
+}
+
+@media (max-width: 1130px) {
+  .fra {
+    &__section {
+      &-service {
+        &-divider {
+          width: 327px;
+        }
+        &-numbers {
+          display: flex;
+          padding: var(--Component-Padding-6xLarge, 64px) var(--11, 24px);
+          flex-direction: column;
+          align-items: center;
+          gap: 40px;
+          height: auto;
+          &-title {
+            justify-content: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .fra {
+    &__section {
+      &-service {
+        &-numbers {
+          &-title {
+            font-size: 64px;
+          }
+        }
+      }
+    }
+  }
 }
