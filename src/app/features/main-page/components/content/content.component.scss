@@ -82,7 +82,24 @@
   }
 }
 
-@media (max-width: 985px) {
+.tablet,
+.mobile {
+  display: none;
+}
+
+@media screen and (min-width: 680px) and (max-width: 1023px) {
+  .desktop {
+    display: none;
+  }
+
+  .tablet {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+
   .fra {
     &__section {
       &-service {
@@ -115,7 +132,62 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 679px) {
+  .desktop {
+    display: none;
+  }
+
+  .tablet {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .fra {
+    &__section {
+      &-service {
+        &-content {
+          display: flex;
+          padding: var(--Component-Padding-6xLarge, 64px) 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 40px;
+          align-self: stretch;
+          &-core {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            align-self: stretch;
+          }
+
+          &-description {
+            display: flex;
+            align-items: normal;
+            flex-direction: column;
+            gap: 32px;
+            height: auto;
+            align-self: stretch;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .fra__section-service-content-description-title {
+    font-size: 40px;
+  }
+
+  .fra__section-service-content-description-content {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 680px) {
   .fra__section-service-content-description-title {
     font-size: 32px;
   }

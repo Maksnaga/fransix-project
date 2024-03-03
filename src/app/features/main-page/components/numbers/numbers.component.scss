@@ -52,22 +52,26 @@
   }
 }
 
-@media (max-width: 1130px) {
+@media (max-width: 1023px) {
   .fra {
     &__section {
       &-service {
         &-divider {
-          width: 327px;
+          width: 100%;
         }
         &-numbers {
-          display: flex;
           padding: var(--Component-Padding-6xLarge, 64px) var(--11, 24px);
+          max-width: 1280px;
           flex-direction: column;
-          align-items: center;
-          gap: 40px;
+          align-items: flex-start;
           height: auto;
+          align-self: stretch;
           &-title {
             justify-content: normal;
+            font-size: 64px;
+          }
+          &-content {
+            max-width: 100%;
           }
         }
       }
@@ -75,14 +79,12 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 679px) {
   .fra {
     &__section {
       &-service {
         &-numbers {
-          &-title {
-            font-size: 64px;
-          }
+          padding: var(--Component-Padding-6xLarge, 64px) 16px;
         }
       }
     }

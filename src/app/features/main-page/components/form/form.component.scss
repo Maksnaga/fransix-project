@@ -64,3 +64,37 @@
     }
   }
 }
+
+@media (max-width: 1023px) {
+  .fra {
+    &__section {
+      &-service {
+        &-form {
+          &--title {
+            font-size: 32px;
+          }
+          &--description {
+            height: 436px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .fra {
+    &__section {
+      &-service {
+        &-form {
+          span {
+            font-size: 20px;
+          }
+          &--description {
+            height: 360px;
+          }
+        }
+      }
+    }
+  }
+}

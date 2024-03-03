@@ -2,6 +2,9 @@
   &__section {
     &-service {
       &-bluebox {
+        &-picture {
+          width: 100%;
+        }
         display: flex;
         padding: 128px 48px;
         align-items: center;
@@ -29,8 +32,6 @@
 
           &--left {
             border-radius: var(--8, 16px);
-            width: 472px;
-            height: 472px;
           }
 
           &--right {
@@ -50,8 +51,6 @@
           align-self: stretch;
 
           &--right {
-            width: 472px;
-            height: 462px;
             border-radius: var(--8, 16px);
           }
 
@@ -102,6 +101,84 @@
             font-style: normal;
             font-weight: 600;
             line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .fra__section-service-bluebox-button {
+    width: 100%;
+  }
+  
+  .fra__section-service-bluebox-bottom--left {
+    order: 2;
+  }
+
+  .fra__section-service-bluebox-bottom--right {
+    order: 1;
+  }
+
+  .fra__section-service-bluebox-title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width: 680px) and (max-width: 1023px) {
+  .fra {
+    &__section {
+      &-service {
+        &-bluebox {
+          padding: var(--Component-Padding-6xLarge, 64px) var(--11, 24px);
+          align-items: center;
+          gap: 8px;
+          &-content {
+            display: flex;
+            padding: 32px var(--11, 24px);
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 72px;
+          }
+          &-bottom,
+          &-top {
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 679px) {
+  .fra {
+    &__section {
+      &-service {
+        &-bluebox {
+          display: flex;
+          padding: var(--Component-Padding-6xLarge, 64px) 16px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          align-self: stretch;
+
+          &-content {
+            display: flex;
+            padding: 32px 16px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 72px;
+            align-self: stretch;
+            width: auto;
+          }
+          &-bottom,
+          &-top {
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
           }
         }
       }
