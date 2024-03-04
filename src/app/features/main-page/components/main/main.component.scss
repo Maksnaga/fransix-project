@@ -115,7 +115,7 @@
   }
 
   .fra__section-main-desc {
-    font-size: 28px;
+    font-size: 32px;
     line-height: 130%;
   }
 
@@ -127,5 +127,13 @@
 @media (max-width: 679px) {
   .fra__section-main-bottom-right {
     right: 16px;
+  }
+  .fra__section-main-vector-img {
+    transform: translate(84px, -76px);
+    width: 143px;
+  }
+  .fra__section-main-desc {
+    font-size: 28px;
+    line-height: 130%;
   }
 }
