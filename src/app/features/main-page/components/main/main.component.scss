@@ -26,7 +26,6 @@
         font-style: normal;
         font-weight: 600;
         line-height: normal;
-        width: 756px;
         color: white;
       }
 
@@ -90,6 +89,10 @@
 }
 
 @media (max-width: 1023px) {
+  .fra__section-main-bottom-right {
+    right: 24px;
+  }
+
   .fra__section-main-buttons {
     flex-direction: column;
     align-items: center;
@@ -118,5 +121,11 @@
 
   .fra__section-main-subdesc {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 679px) {
+  .fra__section-main-bottom-right {
+    right: 16px;
   }
 }
