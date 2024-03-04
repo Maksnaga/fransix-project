@@ -99,6 +99,10 @@
 }
 
 @media (max-width: 1023px) {
+  .fra__section-service-cards-title {
+    text-align: left;
+  }
+
   .fra {
     &__section {
       &-service {
@@ -117,10 +121,9 @@
           padding: var(--Component-Padding-6xLarge, 64px) var(--11, 24px);
           flex-direction: column;
           justify-content: center;
-          align-items: center;
           gap: 40px;
           align-self: stretch;
-
+          align-items: flex-start;
           &-content {
             display: flex;
             flex-direction: column;
@@ -156,7 +159,7 @@
     font-size: 24px;
   }
 
-  .fra__section-service-card-description{
+  .fra__section-service-card-description {
     font-size: 20px;
   }
 }
