@@ -23,14 +23,33 @@
     border-bottom: 1px solid var(--BlueGray-BlueGray-800, #1e293b);
     background: linear-gradient(97deg, #0f172a -17.22%, #0d1b3f 156.6%);
 
+    &--button {
+      color: #0e1935;
+      background-color: white;
+    }
+
+    &--navbar {
+      width: 100%;
+      background-color: #24696900 !important;
+      color: var(--Base-White, #fff) !important;
+
+      display: flex;
+      padding: 20px 24px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     &-left {
       color: var(--Base-White, #fff);
-      margin-left: 24px;
-      font-family: "Urbanist", sans-serif;
+      font-family: Urbanist, sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      display: contents;
     }
 
     &-center {
-      color: var(--BlueGray-BlueGray-400, #94a3b8);
       display: flex;
       font-family: "Urbanist", sans-serif;
       font-size: 16px;
@@ -121,9 +140,12 @@
 .link-active {
   position: relative;
   text-align: center;
+  line-height: normal;
+  text-decoration: auto;
+  color: var(--BlueGray-BlueGray-400, #94a3b8) !important;
 
   &.active {
-    color: white;
+    color: white !important;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -145,7 +167,7 @@
   }
 
   &:hover {
-    color: white;
+    color: white !important;
     cursor: pointer;
   }
 }
@@ -157,6 +179,7 @@
     background: #0e7490 !important;
     border: #0e7490 !important;
     width: 100%;
+    border-radius: var(--3, 6px);
   }
 
   .p-button.p-button-info:not(:disabled):hover,
@@ -172,6 +195,7 @@
     background: transparent !important;
     border: 1px solid var(--Cyan-Cyan-700, #0e7490);
     color: #0e7490;
+    border-radius: var(--3, 6px);
     width: 100%;
   }
 
