@@ -1,52 +1,52 @@
-<div class="fra__header">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary fra__header--navbar">
-    <div class="container-fluid">
-      <div class="navbar-brand">
-        <h1 class="fra__header-left">François Moiroux</h1>
-      </div>
-      <button
-        class="navbar-toggler fra__header--button"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div
-        class="collapse navbar-collapse justify-content-center"
-        id="navbarSupportedContent"
-      >
-        <ul class="navbar-nav mb-2 mb-lg-0 fra__header-center">
-          @for (menuOption of homePageMenu; track menuOption.name) {
-          <li class="nav-item">
-            <a
-              class="menu-chip link-active"
-              [class.active]="activeMenu == menuOption.name"
-              (click)="
-                handleMenuItemClick(menuOption.name); onClick(menuOption.id)
-              "
-              >{{ menuOption.name }}</a
-            >
-          </li>
-          }
-        </ul>
-      </div>
-      <p-button
-        class="btn d-none d-lg-block"
-        label="Commencer ma simulation"
-        icon="pi pi-bolt"
-        severity="info"
-        iconPos="right"
-      ></p-button>
-    </div>
-  </nav>
-</div>
-
 <div #main id="main">
+  <div class="fra__header">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fra__header--navbar">
+      <div class="container-fluid">
+        <div class="navbar-brand">
+          <h1 class="fra__header-left">François Moiroux</h1>
+        </div>
+        <button
+          class="navbar-toggler fra__header--button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mb-2 mb-lg-0 fra__header-center">
+            @for (menuOption of homePageMenu; track menuOption.name) {
+            <li class="nav-item">
+              <a
+                class="menu-chip link-active"
+                [class.active]="activeMenu == menuOption.name"
+                (click)="
+                  handleMenuItemClick(menuOption.name); onClick(menuOption.id)
+                "
+                >{{ menuOption.name }}</a
+              >
+            </li>
+            }
+          </ul>
+        </div>
+        <p-button
+          class="btn d-none d-lg-block"
+          label="Commencer ma simulation"
+          icon="pi pi-bolt"
+          severity="info"
+          iconPos="right"
+        ></p-button>
+      </div>
+    </nav>
+  </div>
+
   <app-main></app-main>
 </div>
 <div class="fra__section-service">

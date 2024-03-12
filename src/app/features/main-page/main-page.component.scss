@@ -6,17 +6,12 @@
 
 .fra {
   &__header {
-    position: fixed;
-    left: 0;
-    width: calc(100% - 44px);
-    max-width: 1280px;
+    width: 100%;
     margin: auto;
-    margin-top: 24px;
     top: 0;
     right: 0;
     z-index: 1;
     border: 1px solid var(--BlueGray-BlueGray-800, #1e293b);
-    border-radius: var(--8, 16px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +52,7 @@
       font-weight: 500;
       line-height: normal;
       justify-content: center;
-      gap: 32px;
+      gap: 48px;
     }
 
     &-right {
@@ -225,5 +220,18 @@
     font-size: 12px !important;
     font-weight: 500 !important;
     border: 1px solid red !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .fra__header-center {
+    gap: 32px;
+    align-items: center;
+  }
+
+  .link-active.active::after {
+    bottom: 8px;
+    left: -16%;
+    transform: translateX(-50%);
   }
 }
