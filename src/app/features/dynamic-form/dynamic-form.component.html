@@ -1,0 +1,17 @@
+<div class="dynamic-form">
+  <div class="dynamic-form__header">
+    <div class="dynamic-form__back-button">
+      <p-button
+        label="Retour"
+        icon="pi pi-arrow-left"
+        severity="info"
+        size="small"
+        (click)="back()"
+      ></p-button>
+    </div>
+    <div class="dynamic-form__progressbar">
+      <p-progressBar [value]="10"></p-progressBar>
+    </div>
+  </div>
+  <div class="dynamic-form__content"><router-outlet></router-outlet></div>
+</div>

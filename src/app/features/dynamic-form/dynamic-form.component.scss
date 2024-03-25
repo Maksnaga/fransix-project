@@ -1,0 +1,82 @@
+.dynamic-form {
+  display: flex;
+  padding: var(--11, 24px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--11, 24px);
+  flex-shrink: 0;
+  &__header {
+    display: flex;
+    padding: 8px 0px 8px var(--11, 24px);
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+  }
+  &__progressbar {
+    width: 100%;
+  }
+
+  &__content {
+    border-radius: var(--3, 6px);
+    border: 1px solid var(--BlueGray-BlueGray-300, #cbd5e1);
+    background: var(--Base-White, #fff);
+    display: flex;
+    padding: 32px 32px 0px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+
+  &__back-button {
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    gap: var(--Component-Gap-Small, 8px);
+  }
+}
+
+:host ::ng-deep {
+  .p-progressbar {
+    display: flex;
+    height: var(--2xSmall, 20px);
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 10px;
+    background: var(--Gray-Gray-100, #f3f4f6);
+  }
+  .p-progressbar-value {
+    height: var(--2xSmall, 20px);
+    padding: 0px var(--11, 24px);
+    align-items: flex-start;
+    display: flex;
+    width: 50%;
+    border-radius: 10px;
+    background: var(--Cyan-Cyan-700, #0e7490);
+  }
+
+  .p-progressbar-label {
+    line-height: 21px;
+  }
+
+  .p-button.p-button-info,
+  .p-buttonset.p-button-info > .p-button,
+  .p-splitbutton.p-button-info > .p-button {
+    background: transparent !important;
+    border: #0e7490 !important;
+    color: var(--Cyan-Cyan-600, #0891b2);
+    width: 100%;
+    border-radius: var(--3, 6px);
+  }
+
+  .p-button .p-button-icon-left {
+    margin-right: 1rem;
+  }
+
+  p-button {
+    display: flex;
+    height: 100%;
+  }
+}

@@ -224,6 +224,9 @@
 }
 
 @media (max-width: 991px) {
+  #navbarSupportedContent {
+    margin-top: 24px;
+  }
   .fra__header-center {
     gap: 32px;
     align-items: center;

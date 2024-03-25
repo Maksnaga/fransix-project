@@ -1,13 +1,6 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  HostListener,
-  Renderer2,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TagModule } from 'primeng/tag';
 import { NumbersComponent } from './components/numbers/numbers.component';
 import { ContentComponent } from './components/content/content.component';
@@ -18,6 +11,8 @@ import { BeginComponent } from './components/begin/begin.component';
 import { MainComponent } from './components/main/main.component';
 import { HeadbandComponent } from './components/headband/headband.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { EmailService } from 'src/app/service/mail.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-main-page',
@@ -35,7 +30,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MainComponent,
     HeadbandComponent,
     FooterComponent,
+    HttpClientModule,
   ],
+  providers: [EmailService],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -68,6 +65,8 @@ export class MainPageComponent implements AfterViewInit {
     'patrimoine',
     'protection',
   ];
+
+  constructor(private emailService: EmailService, private router: Router) {}
 
   ngAfterViewInit(): void {
     this.mainSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
@@ -119,5 +118,17 @@ export class MainPageComponent implements AfterViewInit {
         this.mainSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
         break;
     }
+  }
+
+  public formRedirect(): void {
+    this.router.navigate(['/form']);
+    // this.emailService.sendEmail({}).then(
+    //   (response) => {
+    //     console.log('SUCCESS!', response.status, response.text);
+    //   },
+    //   (err) => {
+    //     console.log('FAILED...', err);
+    //   }
+    // );
   }
 }

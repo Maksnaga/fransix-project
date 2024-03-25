@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dynamic-form',
-  standalone: true,
-  imports: [],
   templateUrl: './dynamic-form.component.html',
-  styleUrl: './dynamic-form.component.scss'
+  styleUrls: ['./dynamic-form.component.scss'],
 })
 export class DynamicFormComponent {
+  constructor(private router: Router) {}
 
+  back(): void {
+    this.router.navigate(['/main']);
+  }
 }
