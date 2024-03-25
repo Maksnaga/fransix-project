@@ -21,7 +21,7 @@ export class MyProjectComponent {
     this.nodeService.getFiles().then((data) => (this.files = data));
   }
 
-  nodeSelect($event: any): void {
+  nodeSelect(): void {
     this.dynamicFormService.disabledNextButton.next(false);
     const formattedText = this.selectedFiles
       .map((item: any) => {
@@ -33,10 +33,9 @@ export class MyProjectComponent {
       })
       .join('\n');
     this.dynamicFormService.message = formattedText;
-    console.log(this.dynamicFormService.message);
   }
 
-  nodeUnselect($event: any): void {
+  nodeUnselect(): void {
     if (this.selectedFiles && this.selectedFiles.length === 0) {
       this.dynamicFormService.disabledNextButton.next(true);
     }

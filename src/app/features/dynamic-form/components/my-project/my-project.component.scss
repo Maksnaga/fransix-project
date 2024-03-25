@@ -41,4 +41,15 @@
     border: 0;
     padding: 0;
   }
+
+  .p-treenode-label {
+    color: var(
+      --Light-Text-Default-Text,
+      var(--BlueGray-BlueGray-800, #1e293b)
+    );
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
 }
