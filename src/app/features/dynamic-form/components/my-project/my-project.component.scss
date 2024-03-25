@@ -1,3 +1,7 @@
+:host {
+  width: 100%;
+}
+
 .my-project {
   display: flex;
   flex-direction: column;
@@ -15,5 +19,17 @@
     line-height: 44px;
     letter-spacing: -0.64px;
     align-self: stretch;
+  }
+
+  &__content {
+    width: 100%;
+  }
+}
+
+:host ::ng-deep {
+  .p-treenode-selectable:not(.p-treenode-leaf) {
+    // border-radius: var(--2, 4px);
+    // border: 1px solid var(--BlueGray-BlueGray-200, #e2e8f0);
+    // background: var(--Base-White, #fff);
   }
 }

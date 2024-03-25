@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DynamicFormService } from './service/dybamic-form.service';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -7,7 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./dynamic-form.component.scss'],
 })
 export class DynamicFormComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public dynamicFormService: DynamicFormService
+  ) {}
 
   back(): void {
     this.router.navigate(['/main']);

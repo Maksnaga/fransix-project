@@ -14,4 +14,12 @@
     </div>
   </div>
   <div class="dynamic-form__content"><router-outlet></router-outlet></div>
+  <div class="dynamic-form__next-button">
+    <p-button
+      [disabled]="dynamicFormService.disabledNextButton.value"
+      label="Suivant"
+      icon="pi pi-arrow-right"
+      iconPos="right"
+    ></p-button>
+  </div>
 </div>
