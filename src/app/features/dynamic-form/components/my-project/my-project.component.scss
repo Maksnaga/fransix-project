@@ -32,4 +32,13 @@
     // border: 1px solid var(--BlueGray-BlueGray-200, #e2e8f0);
     // background: var(--Base-White, #fff);
   }
+
+  .p-tree-container {
+    padding-left: 0;
+  }
+
+  .p-tree {
+    border: 0;
+    padding: 0;
+  }
 }

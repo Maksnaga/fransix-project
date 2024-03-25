@@ -33,6 +33,7 @@ export class MyProjectComponent {
       })
       .join('\n');
     this.dynamicFormService.message = formattedText;
+    console.log(this.dynamicFormService.message);
   }
 
   nodeUnselect($event: any): void {
