@@ -10,7 +10,7 @@
       ></p-button>
     </div>
     <div class="dynamic-form__progressbar">
-      <p-progressBar [value]="10"></p-progressBar>
+      <p-progressBar [value]="dynamicFormService.progress"></p-progressBar>
     </div>
   </div>
   <div class="dynamic-form__content"><router-outlet></router-outlet></div>
@@ -20,6 +20,7 @@
       label="Suivant"
       icon="pi pi-arrow-right"
       iconPos="right"
+      severity="help"
       (click)="next()"
     ></p-button>
   </div>

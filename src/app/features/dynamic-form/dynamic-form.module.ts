@@ -6,7 +6,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { MyProjectComponent } from './components/my-project/my-project.component';
 import { TreeModule } from 'primeng/tree';
 import { NodeService } from './service/node.service';
-import { DynamicFormService } from './service/dybamic-form.service';
+import { DynamicFormService } from './service/dynamic-form.service';
 
 @NgModule({
   declarations: [DynamicFormComponent, MyProjectComponent],

@@ -5,7 +5,8 @@
       [value]="files"
       selectionMode="checkbox"
       class="w-full md:w-30rem"
-      [(selection)]="selectedFiles"
+      [value]="files"
+      [(selection)]="dynamicFormService.selectedNodes"
       (onNodeSelect)="nodeSelect()"
       (onNodeUnselect)="nodeUnselect()"
     ></p-tree>

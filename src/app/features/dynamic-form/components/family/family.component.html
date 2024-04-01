@@ -1,4 +1,65 @@
 <div class="family">
-  <div class="family__title">Votre situation familliale</div>
-  <div class="family__content"></div>
+  <div class="family__core">
+    <div class="family__title">Votre situation familliale</div>
+    <div class="family__question">
+      Vous êtes
+      <p-button
+        label="{{ selectedFamilyValue || 'Célibataire' }}"
+        [disabled]="
+          selectedFamilyValue !== 'Marié' ||
+          (selectedFamilyValue === 'Marié' &&
+            dynamicFormService.marriedBirthday == null)
+        "
+        (onClick)="resetMarried()"
+        severity="secondary"
+      ></p-button>
+      <div *ngIf="selectedFamilyValue === 'Marié'">
+        et vous êtes unis depuis le
+        <p-calendar
+          [(ngModel)]="dynamicFormService.marriedBirthday"
+          [iconDisplay]="'input'"
+          [showIcon]="true"
+          (onSelect)="selectMarriedBirthday()"
+        ></p-calendar>
+      </div>
+      <div *ngIf="dynamicFormService.marriedBirthday">
+        avec pour régime matrimonial
+      </div>
+      <p-button
+        *ngIf="dynamicFormService.marriedBirthday"
+        label="{{
+          selectedMarriedValue || 'la communauté réduite aux acquêts'
+        }}"
+        [disabled]="true"
+        severity="secondary"
+      ></p-button>
+    </div>
+    <div class="family__content">
+      <div
+        *ngIf="dynamicFormService.marriedBirthday; else elseBlock"
+        class="family__content-married"
+      >
+        <div *ngFor="let value of dynamicFormService.valuesMarried">
+          <p-toggleButton
+            [(ngModel)]="value.selected"
+            [disabled]="value.selected"
+            (onChange)="selectMarriedValue(value)"
+            onLabel="{{ value.value }}"
+            offLabel="{{ value.value }}"
+          ></p-toggleButton>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <div *ngFor="let value of dynamicFormService.valuesFamily">
+          <p-toggleButton
+            [(ngModel)]="value.selected"
+            [disabled]="value.selected"
+            (onChange)="selectFamilyValue(value)"
+            onLabel="{{ value.value }}"
+            offLabel="{{ value.value }}"
+          ></p-toggleButton>
+        </div>
+      </ng-template>
+    </div>
+  </div>
 </div>

@@ -89,4 +89,20 @@
     display: flex;
     height: 100%;
   }
+
+  .p-button.p-button-help,
+  .p-buttonset.p-button-help > .p-button,
+  .p-splitbutton.p-button-help > .p-button {
+    background: #0e7490 !important;
+    border: #0e7490 !important;
+    width: 100%;
+    border-radius: var(--3, 6px);
+  }
+
+  .p-button.p-button-help:not(:disabled):hover,
+  .p-buttonset.p-button-help > .p-button:not(:disabled):hover,
+  .p-splitbutton.p-button-help > .p-button:not(:disabled):hover {
+    background: #0b5f76 !important;
+    border: #0b5f76 !important;
+  }
 }

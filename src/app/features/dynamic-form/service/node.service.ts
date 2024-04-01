@@ -11,7 +11,6 @@ export class NodeService {
           {
             key: '0-0',
             label: 'Hospitalisation',
-            Selection: 'Hospitalisation',
           },
           {
             key: '0-1',
