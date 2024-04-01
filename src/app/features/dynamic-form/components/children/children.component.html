@@ -1,0 +1,49 @@
+<div class="children">
+  <div class="children__core">
+    <div class="children__title">Votre situation familliale</div>
+    <div class="children__question">
+      Vous
+      <p-button
+        label="{{ selectedFamilyValue }}"
+        [disabled]="selectedFamilyValue === 'N’avez pas d’enfant'"
+        (onClick)="resetChild()"
+        severity="secondary"
+      ></p-button>
+      <div *ngIf="selectedFamilyValue !== 'N’avez pas d’enfant'">avec</div>
+      <div *ngIf="selectedFamilyValue !== 'N’avez pas d’enfant'">
+        <p-button
+          label="{{ selectedDependantChildValue }}"
+          [disabled]="true"
+          severity="secondary"
+        ></p-button>
+      </div>
+    </div>
+    <div class="children__content">
+      <div
+        *ngIf="this.childrenSelected; else elseBlock"
+        class="children__content-selected"
+      >
+        <div *ngFor="let value of dynamicFormService.valuesDependantChild">
+          <p-toggleButton
+            [(ngModel)]="value.selected"
+            [disabled]="value.selected"
+            (onChange)="selectDependantChildValue(value)"
+            onLabel="{{ value.value }}"
+            offLabel="{{ value.value }}"
+          ></p-toggleButton>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <div *ngFor="let value of dynamicFormService.valuesChildren">
+          <p-toggleButton
+            [(ngModel)]="value.selected"
+            [disabled]="value.selected"
+            (onChange)="selectChildrenValue(value)"
+            onLabel="{{ value.value }}"
+            offLabel="{{ value.value }}"
+          ></p-toggleButton>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

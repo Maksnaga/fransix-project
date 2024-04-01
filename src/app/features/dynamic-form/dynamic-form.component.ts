@@ -8,7 +8,7 @@ import { DynamicFormService } from './service/dynamic-form.service';
   styleUrls: ['./dynamic-form.component.scss'],
 })
 export class DynamicFormComponent implements OnInit {
-  routes = ['/main', 'form', '/form/family'];
+  routes = ['/main', 'form', '/form/family', '/form/children'];
   currentRouteIndex = 1;
 
   constructor(
@@ -23,10 +23,10 @@ export class DynamicFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // const currentRoute = localStorage.getItem('currentRoute');
-    // if (currentRoute && currentRoute !== '/form') {
-    //   this.router.navigate(['/form']);
-    // }
+    const currentRoute = localStorage.getItem('currentRoute');
+    if (currentRoute && currentRoute !== '/form') {
+      this.router.navigate(['/form']);
+    }
   }
 
   next(): void {

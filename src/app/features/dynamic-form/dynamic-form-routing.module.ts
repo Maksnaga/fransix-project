@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MyProjectComponent } from './components/my-project/my-project.component';
 import { DynamicFormComponent } from './dynamic-form.component';
 import { FamilyComponent } from './components/family/family.component';
+import { ChildrenComponent } from './components/children/children.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     children: [
       { path: '', component: MyProjectComponent },
       { path: 'family', component: FamilyComponent },
+      { path: 'children', component: ChildrenComponent },
     ],
   },
 ];

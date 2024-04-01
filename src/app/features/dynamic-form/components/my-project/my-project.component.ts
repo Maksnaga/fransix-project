@@ -18,6 +18,9 @@ export class MyProjectComponent {
 
   ngOnInit() {
     this.nodeService.getFiles().then((data) => (this.files = data));
+    setTimeout(() => {
+      this.dynamicFormService.progress = 10;
+    }, 10);
   }
 
   nodeSelect(): void {
