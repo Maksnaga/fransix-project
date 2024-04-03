@@ -20,7 +20,11 @@
     </div>
     <div class="children__content">
       <div
-        *ngIf="this.childrenSelected; else elseBlock"
+        *ngIf="
+          this.childrenSelected &&
+            selectedFamilyValue !== 'N’avez pas d’enfant';
+          else elseBlock
+        "
         class="children__content-selected"
       >
         <div *ngFor="let value of dynamicFormService.valuesDependantChild">

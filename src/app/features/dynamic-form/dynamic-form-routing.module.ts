@@ -4,6 +4,7 @@ import { MyProjectComponent } from './components/my-project/my-project.component
 import { DynamicFormComponent } from './dynamic-form.component';
 import { FamilyComponent } from './components/family/family.component';
 import { ChildrenComponent } from './components/children/children.component';
+import { FamilyMarriedComponent } from './components/family-married/family-married.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: '', component: MyProjectComponent },
       { path: 'family', component: FamilyComponent },
+      { path: 'married', component: FamilyMarriedComponent },
       { path: 'children', component: ChildrenComponent },
     ],
   },

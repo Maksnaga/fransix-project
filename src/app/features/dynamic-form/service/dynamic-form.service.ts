@@ -33,7 +33,12 @@ export class DynamicFormService {
     { value: '2 enfants à charge', selected: false },
   ];
   marriedBirthday: Date | undefined;
-
+  spouseInformation: {
+    firstName: string | undefined;
+    lastName: string | undefined;
+    birthday: Date | undefined;
+  } = { firstName: undefined, lastName: undefined, birthday: undefined };
+  isMarried: boolean = false;
   message: string = '';
   progress: number = 10;
 }

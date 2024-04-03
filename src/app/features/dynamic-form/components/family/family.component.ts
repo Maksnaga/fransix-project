@@ -47,8 +47,10 @@ export class FamilyComponent implements OnInit {
     this.dynamicFormService.valuesFamily.forEach((v) => (v.selected = false));
     value.selected = true;
     this.dynamicFormService.disabledNextButton.next(false);
+    this.dynamicFormService.isMarried = false;
     if (value.value === 'Marié') {
       this.dynamicFormService.disabledNextButton.next(true);
+      this.dynamicFormService.isMarried = true;
     }
   }
 
