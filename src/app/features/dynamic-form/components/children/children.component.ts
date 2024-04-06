@@ -46,7 +46,7 @@ export class ChildrenComponent {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.dynamicFormService.disabledNextButton.next(false);
+      this.dynamicFormService.disabledNextButton = false;
       this.dynamicFormService.progress = 30;
     }, 10);
   }

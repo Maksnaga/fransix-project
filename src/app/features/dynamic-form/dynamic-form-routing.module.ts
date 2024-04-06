@@ -5,6 +5,9 @@ import { DynamicFormComponent } from './dynamic-form.component';
 import { FamilyComponent } from './components/family/family.component';
 import { ChildrenComponent } from './components/children/children.component';
 import { FamilyMarriedComponent } from './components/family-married/family-married.component';
+import { WorkSituationComponent } from './components/work-situation/work-situation.component';
+import { MarriedWorkSituationComponent } from './components/married-work-situation/married-work-situation.component';
+import { PropertyAssetsComponent } from './components/property-assets/property-assets.component';
 
 const routes: Routes = [
   {
@@ -15,6 +18,9 @@ const routes: Routes = [
       { path: 'family', component: FamilyComponent },
       { path: 'married', component: FamilyMarriedComponent },
       { path: 'children', component: ChildrenComponent },
+      { path: 'work', component: WorkSituationComponent },
+      { path: 'married-work', component: MarriedWorkSituationComponent },
+      { path: 'property', component: PropertyAssetsComponent },
     ],
   },
 ];

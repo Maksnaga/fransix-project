@@ -1,0 +1,32 @@
+<div class="work">
+  <div class="work__core">
+    <div class="work__title">Votre situation professionnelle</div>
+    <div class="work__question">
+      Vous exercez le métier de
+      <input
+        type="text"
+        pInputText
+        placeholder="Intitulé de votre métier"
+        [(ngModel)]="dynamicFormService.workName"
+        (input)="changeWorkName()"
+      />
+      et vous êtes
+      <p-button
+        label="{{ selectedWorkSituationValue }}"
+        [disabled]="true"
+        severity="secondary"
+      ></p-button>
+    </div>
+    <div class="work__content">
+      <div *ngFor="let value of dynamicFormService.valuesWorkSituation">
+        <p-toggleButton
+          [(ngModel)]="value.selected"
+          [disabled]="value.selected"
+          (onChange)="selectWorkSituationValue(value)"
+          onLabel="{{ value.value }}"
+          offLabel="{{ value.value }}"
+        ></p-toggleButton>
+      </div>
+    </div>
+  </div>
+</div>

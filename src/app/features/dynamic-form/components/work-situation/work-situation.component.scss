@@ -1,0 +1,84 @@
+:host {
+  width: 100%;
+}
+
+.work {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--11, 24px);
+  flex: 1 0 0;
+  align-self: stretch;
+
+  &__title {
+    color: var(--Content-Primary, #272e35);
+    font-feature-settings: "clig" off, "liga" off;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -0.64px;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Component-Padding-Large, 16px);
+    &-married {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--Component-Padding-Large, 16px);
+    }
+  }
+
+  &__core {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--11, 24px);
+    align-self: stretch;
+  }
+
+  &__question {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 16px 8px;
+    align-self: stretch;
+    flex-wrap: wrap;
+  }
+}
+
+:host ::ng-deep {
+  .p-button.p-button-secondary,
+  .p-buttonset.p-button-secondary > .p-button,
+  .p-splitbutton.p-button-secondary > .p-button {
+    background: var(--Gray-Gray-200, #e5e7eb) !important;
+    border: #0e7490 !important;
+    color: #374151 !important;
+    width: 100%;
+    border-radius: var(--3, 6px);
+  }
+
+  .p-button.p-button-secondary:not(:disabled):hover,
+  .p-buttonset.p-button-secondary > .p-button:not(:disabled):hover,
+  .p-splitbutton.p-button-secondary > .p-button:not(:disabled):hover {
+    background: #0b5f76 !important;
+    border: #0b5f76 !important;
+  }
+
+  .p-togglebutton.p-button.p-highlight {
+    border-radius: 4px !important;
+    border: 1px solid var(--Cyan-Cyan-600, #0891b2) !important;
+    background: var(--Cyan-Cyan-50, #ecfeff) !important;
+    color: #0891b2 !important;
+  }
+
+  .p-togglebutton.p-button:not(.p-disabled):not(.p-highlight):hover {
+    border-radius: 4px !important;
+    border: 1px solid var(--BlueGray-BlueGray-500, #64748b) !important;
+  }
+}

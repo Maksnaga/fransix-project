@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class DynamicFormService {
   selectedNodes!: TreeNode[];
-  disabledNextButton = new BehaviorSubject<boolean>(true);
+  disabledNextButton = true;
   valuesFamily: { value: string; selected: boolean }[] = [
     { value: 'Célibataire', selected: true },
     { value: 'Marié', selected: false },
@@ -32,13 +32,60 @@ export class DynamicFormService {
     { value: '1 enfant à charge', selected: false },
     { value: '2 enfants à charge', selected: false },
   ];
+  valuesWorkSituation: { value: string; selected: boolean }[] = [
+    { value: 'Artisan', selected: true },
+    { value: 'Commerçant', selected: false },
+    { value: 'Indépendant', selected: false },
+    { value: 'Agriculteur', selected: false },
+    { value: 'Cadre', selected: false },
+    { value: 'Non cadre', selected: false },
+    { value: 'Chef d’entreprise', selected: false },
+  ];
+  valuesMarriedWorkSituation: { value: string; selected: boolean }[] = [
+    { value: 'Artisan', selected: true },
+    { value: 'Commerçant', selected: false },
+    { value: 'Indépendant', selected: false },
+    { value: 'Agriculteur', selected: false },
+    { value: 'Cadre', selected: false },
+    { value: 'Non cadre', selected: false },
+    { value: 'Chef d’entreprise', selected: false },
+  ];
+  propertyAssetsValues: { value: string; selected: boolean }[] = [
+    { value: 'Locataire', selected: false },
+    { value: 'Propriétaire', selected: false },
+    { value: 'Hébergé gratuitement', selected: false },
+    { value: 'Dans un logement de fonction', selected: false },
+  ];
+  propertyTypeValues: { value: string; selected: boolean }[] = [
+    { value: 'Une maison', selected: false },
+    { value: 'Un appartement', selected: false },
+  ];
+  surfaceValues: { value: string; selected: boolean }[] = [
+    { value: 'Entre 0 et 100m2', selected: false },
+    { value: 'Entre 100 et 200m2', selected: false },
+    { value: 'Entre 200 et 300m2', selected: false },
+    { value: 'Entre 300 et 400m2', selected: false },
+    { value: 'Entre 400 et 500m2', selected: false },
+    { value: 'Plus de 500m2', selected: false },
+  ];
+  estimateValues: { value: string; selected: boolean }[] = [
+    { value: 'Entre 0 est 250 000€', selected: false },
+    { value: 'Entre 250 000 est 500 000€', selected: false },
+    { value: 'Entre 500 000 est 750 000€', selected: false },
+    { value: 'Entre 750 000 est 1 000 000€', selected: false },
+    { value: 'Entre 400 et 500m2', selected: false },
+    { value: 'Plus de 1 000 000€', selected: false },
+  ];
   marriedBirthday: Date | undefined;
   spouseInformation: {
     firstName: string | undefined;
     lastName: string | undefined;
     birthday: Date | undefined;
   } = { firstName: undefined, lastName: undefined, birthday: undefined };
+  workName: string | undefined;
+  marriedWorkName: string | undefined;
   isMarried: boolean = false;
+  isOwner: boolean = false;
   message: string = '';
   progress: number = 10;
 }

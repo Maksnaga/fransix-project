@@ -1,0 +1,32 @@
+<div class="married-work">
+  <div class="married-work__core">
+    <div class="married-work__title">Votre situation professionnelle</div>
+    <div class="married-work__question">
+      Votre conjoint(e) exerce le métier de
+      <input
+        type="text"
+        pInputText
+        placeholder="Intitulé de votre métier"
+        [(ngModel)]="dynamicFormService.marriedWorkName"
+        (input)="changeWorkName()"
+      />
+      et vous êtes
+      <p-button
+        label="{{ selectedWorkSituationValue }}"
+        [disabled]="true"
+        severity="secondary"
+      ></p-button>
+    </div>
+    <div class="married-work__content">
+      <div *ngFor="let value of dynamicFormService.valuesMarriedWorkSituation">
+        <p-toggleButton
+          [(ngModel)]="value.selected"
+          [disabled]="value.selected"
+          (onChange)="selectWorkSituationValue(value)"
+          onLabel="{{ value.value }}"
+          offLabel="{{ value.value }}"
+        ></p-toggleButton>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,16 @@ import { DynamicFormService } from './service/dynamic-form.service';
   styleUrls: ['./dynamic-form.component.scss'],
 })
 export class DynamicFormComponent implements OnInit {
-  routes = ['/main', 'form', '/form/family', '/form/married', '/form/children'];
+  routes = [
+    '/main',
+    'form',
+    '/form/family',
+    '/form/married',
+    '/form/children',
+    '/form/work',
+    '/form/married-work',
+    '/form/property',
+  ];
   currentRouteIndex = 1;
 
   constructor(
@@ -31,7 +40,10 @@ export class DynamicFormComponent implements OnInit {
 
   next(): void {
     if (this.currentRouteIndex < this.routes.length - 1) {
-      if (this.currentRouteIndex == 2 && !this.dynamicFormService.isMarried) {
+      if (this.currentRouteIndex === 2 && !this.dynamicFormService.isMarried) {
+        this.currentRouteIndex++;
+      }
+      if (this.currentRouteIndex === 5 && !this.dynamicFormService.isMarried) {
         this.currentRouteIndex++;
       }
       this.currentRouteIndex++;
@@ -41,7 +53,10 @@ export class DynamicFormComponent implements OnInit {
 
   back(): void {
     if (this.currentRouteIndex > 0) {
-      if (this.currentRouteIndex == 4 && !this.dynamicFormService.isMarried) {
+      if (this.currentRouteIndex === 4 && !this.dynamicFormService.isMarried) {
+        this.currentRouteIndex--;
+      }
+      if (this.currentRouteIndex === 7 && !this.dynamicFormService.isMarried) {
         this.currentRouteIndex--;
       }
       this.currentRouteIndex--;
@@ -50,14 +65,14 @@ export class DynamicFormComponent implements OnInit {
   }
 
   disabledNextButton(): boolean {
-    if (
-      this.dynamicFormService.isMarried &&
-      !this.isSpouseInformationComplete() &&
-      this.currentRouteIndex == 3
-    ) {
-      return true;
-    }
-    return this.dynamicFormService.disabledNextButton.value;
+    // if (
+    //   this.dynamicFormService.isMarried &&
+    //   !this.isSpouseInformationComplete() &&
+    //   this.currentRouteIndex == 3
+    // ) {
+    //   return true;
+    // }
+    return this.dynamicFormService.disabledNextButton;
   }
 
   isSpouseInformationComplete(): boolean {
@@ -73,7 +88,7 @@ export class DynamicFormComponent implements OnInit {
         return false;
       }
     }
-    this.dynamicFormService.disabledNextButton.next(false);
+    this.dynamicFormService.disabledNextButton = false;
     return true;
   }
 }

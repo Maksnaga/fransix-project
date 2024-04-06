@@ -39,17 +39,17 @@ export class FamilyComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.dynamicFormService.progress = 20;
-      this.dynamicFormService.disabledNextButton.next(!this.isAnySelected());
+      this.dynamicFormService.disabledNextButton = !this.isAnySelected();
     }, 10);
   }
 
   selectFamilyValue(value: { value: string; selected: boolean }): void {
     this.dynamicFormService.valuesFamily.forEach((v) => (v.selected = false));
     value.selected = true;
-    this.dynamicFormService.disabledNextButton.next(false);
+    this.dynamicFormService.disabledNextButton = false;
     this.dynamicFormService.isMarried = false;
     if (value.value === 'Marié') {
-      this.dynamicFormService.disabledNextButton.next(true);
+      this.dynamicFormService.disabledNextButton = true;
       this.dynamicFormService.isMarried = true;
     }
   }
@@ -57,7 +57,7 @@ export class FamilyComponent implements OnInit {
   selectMarriedValue(value: { value: string; selected: boolean }): void {
     this.dynamicFormService.valuesMarried.forEach((v) => (v.selected = false));
     value.selected = true;
-    this.dynamicFormService.disabledNextButton.next(false);
+    this.dynamicFormService.disabledNextButton = false;
   }
 
   isAnySelected(): boolean {
@@ -66,10 +66,10 @@ export class FamilyComponent implements OnInit {
 
   resetMarried(): void {
     this.dynamicFormService.marriedBirthday = undefined;
-    this.dynamicFormService.disabledNextButton.next(true);
+    this.dynamicFormService.disabledNextButton = true;
   }
 
   selectMarriedBirthday() {
-    this.dynamicFormService.disabledNextButton.next(false);
+    this.dynamicFormService.disabledNextButton = false;
   }
 }

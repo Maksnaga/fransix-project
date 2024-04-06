@@ -24,7 +24,7 @@ export class MyProjectComponent {
   }
 
   nodeSelect(): void {
-    this.dynamicFormService.disabledNextButton.next(false);
+    this.dynamicFormService.disabledNextButton = false;
     const formattedText = this.dynamicFormService.selectedNodes
       .map((item: any) => {
         if (!item.children) return;
@@ -42,7 +42,7 @@ export class MyProjectComponent {
       this.dynamicFormService.selectedNodes &&
       this.dynamicFormService.selectedNodes.length === 0
     ) {
-      this.dynamicFormService.disabledNextButton.next(true);
+      this.dynamicFormService.disabledNextButton = true;
     }
   }
 }
