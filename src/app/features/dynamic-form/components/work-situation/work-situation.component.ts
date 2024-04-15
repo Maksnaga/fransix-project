@@ -24,15 +24,21 @@ export class WorkSituationComponent {
     const selected = this.dynamicFormService.valuesWorkSituation.find(
       (v) => v.selected
     );
+
     return selected ? selected.value : 'Artisan';
   }
   constructor(public dynamicFormService: DynamicFormService) {}
 
   ngOnInit(): void {
     setTimeout(() => {
-      debugger;
-      this.dynamicFormService.progress = 50;
       this.dynamicFormService.disabledNextButton = true;
+      if (
+        this.dynamicFormService.workName &&
+        this.dynamicFormService.workName.length > 0
+      ) {
+        this.dynamicFormService.disabledNextButton = false;
+      }
+      this.dynamicFormService.progress = 50;
     }, 10);
   }
 

@@ -1,0 +1,44 @@
+<div class="multiple">
+  <div class="multiple__content">
+    <div class="multiple__header">
+      <div class="multiple__title">{{ name }} :</div>
+      <div class="multiple__icon" (click)="removeProperty()">
+        <i class="pi pi-times"></i>
+      </div>
+    </div>
+    <div class="multiple__selector">
+      Vous possédez
+      <p-dropdown
+        [(ngModel)]="selectedProperty"
+        optionLabel="name"
+        [options]="properties"
+        (onChange)="onPropertyChange($event)"
+        placeholder="Choisissez un patrimoine"
+      ></p-dropdown>
+      . Il s’agit d’
+      <p-dropdown
+        [(ngModel)]="selectedType"
+        optionLabel="name"
+        [options]="types"
+        (onChange)="onTypeChange($event)"
+        placeholder="Choisissez un type de bien"
+      ></p-dropdown>
+      d’une superficie de
+      <p-dropdown
+        [(ngModel)]="selectedSuperficy"
+        optionLabel="name"
+        [options]="superficy"
+        (onChange)="onSuperficyChange($event)"
+        placeholder="Choisissez une superficie"
+      ></p-dropdown>
+      , d’une valeur estimée a
+      <p-dropdown
+        [(ngModel)]="selectedValue"
+        optionLabel="name"
+        [options]="value"
+        (onChange)="onValueChange($event)"
+        placeholder="Choisissez une valeur"
+      ></p-dropdown>
+    </div>
+  </div>
+</div>

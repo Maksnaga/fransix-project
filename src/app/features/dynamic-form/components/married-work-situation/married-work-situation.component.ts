@@ -30,8 +30,14 @@ export class MarriedWorkSituationComponent {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.dynamicFormService.progress = 55;
       this.dynamicFormService.disabledNextButton = true;
+      if (
+        this.dynamicFormService.marriedWorkName &&
+        this.dynamicFormService.marriedWorkName.length > 0
+      ) {
+        this.dynamicFormService.disabledNextButton = false;
+      }
+      this.dynamicFormService.progress = 55;
     }, 10);
   }
 

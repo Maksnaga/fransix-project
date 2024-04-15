@@ -1,0 +1,54 @@
+.multiple {
+  display: flex;
+  padding: var(--Component-Padding-Large, 16px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: var(--Large, 8px);
+  border: 1px solid var(--Border-Neutral-Subtle, #cfd6dd);
+  background: var(--Background-Default, #fff);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Component-Padding-Large, 16px);
+    align-self: stretch;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  &__title {
+    color: var(--BlueGray-BlueGray-900, #0f172a);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1200px) {
+  .multiple {
+    &__selector {
+      display: contents;
+    }
+  }
+}
+
+:host ::ng-deep {
+  ul {
+    margin-bottom: 0 !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+}

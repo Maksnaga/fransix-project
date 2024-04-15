@@ -1,0 +1,47 @@
+<div class="properties">
+  <div class="properties__core">
+    <div class="properties__title">Votre patrimoine immobilier</div>
+    <div class="properties__question">
+      Vous
+      <p-button
+        label="{{ selectedOtherPropertyValues }}"
+        [disabled]="true"
+        severity="secondary"
+      ></p-button>
+    </div>
+    <div class="properties__content">
+      @if (!dynamicFormService.hasOtherProperties ||
+      dynamicFormService.propertiesMap.size === 0) {
+      <div *ngFor="let value of dynamicFormService.otherPropertiesValues">
+        <p-toggleButton
+          [(ngModel)]="value.selected"
+          [disabled]="value.selected"
+          (onChange)="selectOtherPropertiesValue(value)"
+          onLabel="{{ value.value }}"
+          offLabel="{{ value.value }}"
+        ></p-toggleButton>
+      </div>
+      } @if (dynamicFormService.hasOtherProperties){
+      <ng-container
+        *ngFor="
+          let entry of dynamicFormService.propertiesMap | keyvalue;
+          let i = index
+        "
+      >
+        <app-multiple-properties
+          [name]="'Patrimoine ' + (i + 1)"
+        ></app-multiple-properties>
+      </ng-container>
+
+      <p-button
+        severity="secondary"
+        label="Ajouter un patrimoine"
+        icon="pi pi-plus"
+        iconPos="right"
+        (click)="addProperty()"
+      ></p-button>
+
+      }
+    </div>
+  </div>
+</div>

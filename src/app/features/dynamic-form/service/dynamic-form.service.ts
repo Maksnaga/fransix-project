@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { TreeNode } from 'primeng/api/treenode';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class DynamicFormService {
@@ -73,8 +72,11 @@ export class DynamicFormService {
     { value: 'Entre 250 000 est 500 000€', selected: false },
     { value: 'Entre 500 000 est 750 000€', selected: false },
     { value: 'Entre 750 000 est 1 000 000€', selected: false },
-    { value: 'Entre 400 et 500m2', selected: false },
     { value: 'Plus de 1 000 000€', selected: false },
+  ];
+  otherPropertiesValues: { value: string; selected: boolean }[] = [
+    { value: 'Ne possédez pas d’autre bien immobiliers', selected: false },
+    { value: 'Possédez d’autres bien immobiliers', selected: false },
   ];
   marriedBirthday: Date | undefined;
   spouseInformation: {
@@ -88,4 +90,11 @@ export class DynamicFormService {
   isOwner: boolean = false;
   message: string = '';
   progress: number = 10;
+  propetyOwnerIsSelected = false;
+  propertyTypeIsSelected = false;
+  surfaceIsSelected = false;
+  estimateIsSelected = false;
+  hasOtherProperties = false;
+  propertiesMap: Map<string, Map<string, { name: string; code: string }[]>> =
+    new Map();
 }

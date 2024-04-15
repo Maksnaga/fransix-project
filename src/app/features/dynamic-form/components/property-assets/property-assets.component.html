@@ -19,14 +19,17 @@
         d'une superficie de
         <p-button
           label="{{ selectedSurfaceValue }}"
-          [disabled]="!estimateIsSelected && !surfaceIsSelected"
+          [disabled]="
+            !dynamicFormService.estimateIsSelected &&
+            !dynamicFormService.surfaceIsSelected
+          "
           (onClick)="selectSurface()"
           severity="secondary"
         ></p-button>
         , d’une valeur estimée a
         <p-button
           label="{{ selectedEstimateValue }}"
-          [disabled]="!estimateIsSelected"
+          [disabled]="!dynamicFormService.estimateIsSelected"
           (onClick)="selectEstimate()"
           severity="secondary"
         ></p-button>
@@ -34,7 +37,7 @@
     </div>
     <div class="property-assets__content">
       <ng-container *ngIf="this.dynamicFormService.isOwner; else default">
-        <ng-container *ngIf="propertyTypeIsSelected">
+        <ng-container *ngIf="dynamicFormService.propertyTypeIsSelected">
           <div *ngFor="let value of dynamicFormService.propertyTypeValues">
             <p-toggleButton
               [(ngModel)]="value.selected"
@@ -45,7 +48,7 @@
             ></p-toggleButton>
           </div>
         </ng-container>
-        <ng-container *ngIf="surfaceIsSelected">
+        <ng-container *ngIf="dynamicFormService.surfaceIsSelected">
           <div *ngFor="let value of dynamicFormService.surfaceValues">
             <p-toggleButton
               [(ngModel)]="value.selected"
@@ -56,7 +59,7 @@
             ></p-toggleButton>
           </div>
         </ng-container>
-        <ng-container *ngIf="estimateIsSelected">
+        <ng-container *ngIf="dynamicFormService.estimateIsSelected">
           <div *ngFor="let value of dynamicFormService.estimateValues">
             <p-toggleButton
               [(ngModel)]="value.selected"

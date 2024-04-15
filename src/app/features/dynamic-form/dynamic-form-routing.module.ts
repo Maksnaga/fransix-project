@@ -8,6 +8,7 @@ import { FamilyMarriedComponent } from './components/family-married/family-marri
 import { WorkSituationComponent } from './components/work-situation/work-situation.component';
 import { MarriedWorkSituationComponent } from './components/married-work-situation/married-work-situation.component';
 import { PropertyAssetsComponent } from './components/property-assets/property-assets.component';
+import { PropertiesComponent } from './components/properties/properties.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'work', component: WorkSituationComponent },
       { path: 'married-work', component: MarriedWorkSituationComponent },
       { path: 'property', component: PropertyAssetsComponent },
+      { path: 'other-property', component: PropertiesComponent },
     ],
   },
 ];

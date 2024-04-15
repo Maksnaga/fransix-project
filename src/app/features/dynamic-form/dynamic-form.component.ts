@@ -17,6 +17,7 @@ export class DynamicFormComponent implements OnInit {
     '/form/work',
     '/form/married-work',
     '/form/property',
+    '/form/other-property',
   ];
   currentRouteIndex = 1;
 
@@ -46,6 +47,9 @@ export class DynamicFormComponent implements OnInit {
       if (this.currentRouteIndex === 5 && !this.dynamicFormService.isMarried) {
         this.currentRouteIndex++;
       }
+      if (this.currentRouteIndex === 7 && !this.dynamicFormService.isOwner) {
+        this.currentRouteIndex++;
+      }
       this.currentRouteIndex++;
       this.router.navigate([this.routes[this.currentRouteIndex]]);
     }
@@ -59,19 +63,15 @@ export class DynamicFormComponent implements OnInit {
       if (this.currentRouteIndex === 7 && !this.dynamicFormService.isMarried) {
         this.currentRouteIndex--;
       }
+      if (this.currentRouteIndex === 8 && !this.dynamicFormService.isOwner) {
+        this.currentRouteIndex--;
+      }
       this.currentRouteIndex--;
       this.router.navigate([this.routes[this.currentRouteIndex]]);
     }
   }
 
   disabledNextButton(): boolean {
-    // if (
-    //   this.dynamicFormService.isMarried &&
-    //   !this.isSpouseInformationComplete() &&
-    //   this.currentRouteIndex == 3
-    // ) {
-    //   return true;
-    // }
     return this.dynamicFormService.disabledNextButton;
   }
 
