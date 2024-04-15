@@ -5,87 +5,6 @@ export class NodeService {
   getTreeNodesData() {
     return [
       {
-        key: '0',
-        label: '❤️‍🩹 Santé',
-        children: [
-          {
-            key: '0-0',
-            label: 'Hospitalisation',
-          },
-          {
-            key: '0-1',
-            label: 'Dépassements d’honoraires',
-          },
-          {
-            key: '0-2',
-            label: 'Chambre particulière',
-          },
-          {
-            key: '0-3',
-            label: 'Indemnisation hospitalière',
-          },
-          {
-            key: '0-4',
-            label: 'Soins',
-          },
-          {
-            key: '0-5',
-            label: 'Optique',
-          },
-          {
-            key: '0-6',
-            label: 'Dentaire / Orthodontie',
-          },
-          {
-            key: '0-7',
-            label: 'Médecine douce',
-          },
-          {
-            key: '0-8',
-            label: 'Soins à domicile',
-          },
-        ],
-      },
-
-      {
-        key: '1',
-        label: '⛵ Projet à courts et moyen terme',
-        children: [
-          {
-            key: '1-0',
-            label: 'Mariage',
-          },
-          {
-            key: '1-1',
-            label: 'Enfants',
-          },
-          {
-            key: '1-2',
-            label: 'Changement d’activité',
-          },
-          {
-            key: '1-3',
-            label: 'Déménagement',
-          },
-          {
-            key: '1-4',
-            label: 'Voyages',
-          },
-          {
-            key: '1-5',
-            label: 'Études des enfants',
-          },
-          {
-            key: '1-6',
-            label: 'Installation des enfants',
-          },
-          {
-            key: '1-7',
-            label: 'Financement / achat',
-          },
-        ],
-      },
-      {
         key: '2',
         label: '☂️ Protection de la personne / Famille',
         children: [
@@ -127,32 +46,7 @@ export class NodeService {
           },
         ],
       },
-      {
-        key: '3',
-        label: '💎 Protection des biens et responsabilités',
-        children: [
-          {
-            key: '3-0',
-            label: 'Auto / 2 roues',
-          },
-          {
-            key: '3-1',
-            label: 'Habitation',
-          },
-          {
-            key: '3-2',
-            label: 'Responsabilité civile',
-          },
-          {
-            key: '3-3',
-            label: 'Bateau',
-          },
-          {
-            key: '3-4',
-            label: 'Objets précieux',
-          },
-        ],
-      },
+
       {
         key: '4',
         label: '👨‍👩‍👧 Transmission',
@@ -246,6 +140,112 @@ export class NodeService {
           {
             key: '7-3',
             label: 'Travaux',
+          },
+        ],
+      },
+      {
+        key: '0',
+        label: '❤️‍🩹 Santé',
+        children: [
+          {
+            key: '0-0',
+            label: 'Hospitalisation',
+          },
+          {
+            key: '0-1',
+            label: 'Dépassements d’honoraires',
+          },
+          {
+            key: '0-2',
+            label: 'Chambre particulière',
+          },
+          {
+            key: '0-3',
+            label: 'Indemnisation hospitalière',
+          },
+          {
+            key: '0-4',
+            label: 'Soins',
+          },
+          {
+            key: '0-5',
+            label: 'Optique',
+          },
+          {
+            key: '0-6',
+            label: 'Dentaire / Orthodontie',
+          },
+          {
+            key: '0-7',
+            label: 'Médecine douce',
+          },
+          {
+            key: '0-8',
+            label: 'Soins à domicile',
+          },
+        ],
+      },
+      {
+        key: '1',
+        label: '⛵ Projet à courts et moyen terme',
+        children: [
+          {
+            key: '1-0',
+            label: 'Mariage',
+          },
+          {
+            key: '1-1',
+            label: 'Enfants',
+          },
+          {
+            key: '1-2',
+            label: 'Changement d’activité',
+          },
+          {
+            key: '1-3',
+            label: 'Déménagement',
+          },
+          {
+            key: '1-4',
+            label: 'Voyages',
+          },
+          {
+            key: '1-5',
+            label: 'Études des enfants',
+          },
+          {
+            key: '1-6',
+            label: 'Installation des enfants',
+          },
+          {
+            key: '1-7',
+            label: 'Financement / achat',
+          },
+        ],
+      },
+      {
+        key: '3',
+        label: '💎 Protection des biens et responsabilités',
+        children: [
+          {
+            key: '3-0',
+            label: 'Auto / 2 roues',
+          },
+          {
+            key: '3-1',
+            label: 'Habitation',
+          },
+          {
+            key: '3-2',
+            label: 'Responsabilité civile',
+          },
+          {
+            key: '3-3',
+            label: 'Bateau',
+          },
+          {
+            key: '3-4',
+            label: 'Objets précieux',
           },
         ],
       },

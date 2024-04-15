@@ -51,6 +51,7 @@ export class MultipleComponent implements OnInit {
     this.selectedValue = map?.get('value');
     setTimeout(() => {
       this.isFilled();
+      this.dynamicFormService.progress = 80;
     }, 10);
   }
 
