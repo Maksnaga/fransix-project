@@ -120,6 +120,11 @@ export class DynamicFormService {
   hasOtherProperties = false;
   propertiesMap: Map<string, Map<string, { name: string; code: string }[]>> =
     new Map();
-  creditPropertiesMap: Map<string, { value: number; ending: Date }> = new Map();
-  rentPropertiesMap: Map<string, number> = new Map();
+  // creditInProgressMap: Map<string, boolean> = new Map();
+  // rentInProgressMap: Map<string, boolean> = new Map();
+  creditPropertiesMap: Map<
+    string,
+    { value: number | undefined; ending: Date | undefined }
+  > = new Map();
+  rentPropertiesMap: Map<string, number | undefined> = new Map();
 }

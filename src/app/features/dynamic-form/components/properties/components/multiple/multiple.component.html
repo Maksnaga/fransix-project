@@ -46,6 +46,7 @@
       <p-checkbox
         [(ngModel)]="creditInProgress"
         [binary]="true"
+        (onChange)="changeCreditInProgress()"
         inputId="binary"
       ></p-checkbox>
       Vous avez un crédit en court pour ce bien
@@ -74,6 +75,7 @@
       <p-checkbox
         [(ngModel)]="rentInProgress"
         [binary]="true"
+        (onChange)="changeRentInProgress()"
         inputId="binary"
       ></p-checkbox>
       Vous percevez un loyer sur ce bien
@@ -85,7 +87,7 @@
         type="number"
         pInputText
         placeholder="Saisir une valeur"
-        [(ngModel)]="dynamicFormService.monthlyPayment"
+        [(ngModel)]="rentValue"
       />
       € par an.
     </div>

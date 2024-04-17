@@ -85,6 +85,17 @@ export class MultipleComponent implements OnInit {
     this.rentValue = this.dynamicFormService.rentPropertiesMap.get(this.name);
   }
 
+  changeCreditInProgress(): void {
+    this.dynamicFormService.creditPropertiesMap.set(this.name, {
+      value: undefined,
+      ending: undefined,
+    });
+  }
+
+  changeRentInProgress(): void {
+    this.dynamicFormService.rentPropertiesMap.set(this.name, undefined);
+  }
+
   onPropertyChange(event: any) {
     this.dynamicFormService.propertiesMap
       .get(this.name)
@@ -115,6 +126,8 @@ export class MultipleComponent implements OnInit {
 
   removeProperty(): void {
     this.dynamicFormService.propertiesMap.delete(this.name);
+    this.dynamicFormService.creditPropertiesMap.delete(this.name);
+    this.dynamicFormService.rentPropertiesMap.delete(this.name);
     this.dynamicFormService.disabledNextButton = true;
   }
 
