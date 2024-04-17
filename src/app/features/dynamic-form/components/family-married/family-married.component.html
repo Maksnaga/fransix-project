@@ -1,25 +1,25 @@
 <div class="family-married">
   <div class="family-married__core">
     <div class="family-married__title">Votre situation familliale</div>
-    <div class="family-married__question">
-      Votre conjoint(e) s'appelle<input
-        type="text"
-        pInputText
-        placeholder="Prénom"
-        [(ngModel)]="dynamicFormService.spouseInformation.firstName"
-      />
-      <input
-        type="text"
-        pInputText
-        placeholder="Nom"
-        [(ngModel)]="dynamicFormService.spouseInformation.lastName"
-      />et est né(e) le
-      <p-calendar
-        placeholder="15/06/2022"
-        [(ngModel)]="dynamicFormService.spouseInformation.birthday"
-        [iconDisplay]="'input'"
-        [showIcon]="true"
-      ></p-calendar>
-    </div>
+  </div>
+  <div class="family-married__question">
+    Votre conjoint(e) s'appelle<input
+      type="text"
+      pInputText
+      placeholder="Prénom"
+      [(ngModel)]="dynamicFormService.spouseInformation.firstName"
+    />
+    <input
+      type="text"
+      pInputText
+      placeholder="Nom"
+      [(ngModel)]="dynamicFormService.spouseInformation.lastName"
+    />et est né(e) le
+    <p-calendar
+      placeholder="15/06/2022"
+      [(ngModel)]="dynamicFormService.spouseInformation.birthday"
+      [iconDisplay]="'input'"
+      [showIcon]="true"
+    ></p-calendar>
   </div>
 </div>

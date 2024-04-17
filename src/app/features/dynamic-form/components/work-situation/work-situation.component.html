@@ -16,17 +16,26 @@
         [disabled]="true"
         severity="secondary"
       ></p-button>
+      avec un salaire brut annuel de
+      <input
+        type="number"
+        pInputText
+        placeholder="Saisir une valeur"
+        (input)="changeWorkName()"
+        [(ngModel)]="dynamicFormService.workSalary"
+      />
+      €.
     </div>
-    <div class="work__content">
-      <div *ngFor="let value of dynamicFormService.valuesWorkSituation">
-        <p-toggleButton
-          [(ngModel)]="value.selected"
-          [disabled]="value.selected"
-          (onChange)="selectWorkSituationValue(value)"
-          onLabel="{{ value.value }}"
-          offLabel="{{ value.value }}"
-        ></p-toggleButton>
-      </div>
+  </div>
+  <div class="work__content">
+    <div *ngFor="let value of dynamicFormService.valuesWorkSituation">
+      <p-toggleButton
+        [(ngModel)]="value.selected"
+        [disabled]="value.selected"
+        (onChange)="selectWorkSituationValue(value)"
+        onLabel="{{ value.value }}"
+        offLabel="{{ value.value }}"
+      ></p-toggleButton>
     </div>
   </div>
 </div>

@@ -41,4 +41,54 @@
       ></p-dropdown>
     </div>
   </div>
+  <div class="multiple__credit">
+    <div>
+      <p-checkbox
+        [(ngModel)]="creditInProgress"
+        [binary]="true"
+        inputId="binary"
+      ></p-checkbox>
+      Vous avez un crédit en court pour ce bien
+    </div>
+    @if(creditInProgress){
+    <div>
+      Avec une mensualité de
+      <input
+        type="number"
+        pInputText
+        placeholder="Saisir une valeur"
+        [(ngModel)]="monthlyPaiement"
+      />
+      € par mois qui se termine le
+      <p-calendar
+        [(ngModel)]="endingPaiement"
+        [iconDisplay]="'input'"
+        inputId="endingPayment"
+        [showIcon]="true"
+      ></p-calendar>
+    </div>
+    }
+  </div>
+  <div class="multiple__rent">
+    <div>
+      <p-checkbox
+        [(ngModel)]="rentInProgress"
+        [binary]="true"
+        inputId="binary"
+      ></p-checkbox>
+      Vous percevez un loyer sur ce bien
+    </div>
+    @if(rentInProgress){
+    <div>
+      Pour un montant de
+      <input
+        type="number"
+        pInputText
+        placeholder="Saisir une valeur"
+        [(ngModel)]="dynamicFormService.monthlyPayment"
+      />
+      € par an.
+    </div>
+    }
+  </div>
 </div>

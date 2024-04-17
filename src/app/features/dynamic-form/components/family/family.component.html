@@ -34,32 +34,32 @@
         severity="secondary"
       ></p-button>
     </div>
-    <div class="family__content">
-      <div
-        *ngIf="dynamicFormService.marriedBirthday; else elseBlock"
-        class="family__content-married"
-      >
-        <div *ngFor="let value of dynamicFormService.valuesMarried">
-          <p-toggleButton
-            [(ngModel)]="value.selected"
-            [disabled]="value.selected"
-            (onChange)="selectMarriedValue(value)"
-            onLabel="{{ value.value }}"
-            offLabel="{{ value.value }}"
-          ></p-toggleButton>
-        </div>
+  </div>
+  <div class="family__content">
+    <div
+      *ngIf="dynamicFormService.marriedBirthday; else elseBlock"
+      class="family__content-married"
+    >
+      <div *ngFor="let value of dynamicFormService.valuesMarried">
+        <p-toggleButton
+          [(ngModel)]="value.selected"
+          [disabled]="value.selected"
+          (onChange)="selectMarriedValue(value)"
+          onLabel="{{ value.value }}"
+          offLabel="{{ value.value }}"
+        ></p-toggleButton>
       </div>
-      <ng-template #elseBlock>
-        <div *ngFor="let value of dynamicFormService.valuesFamily">
-          <p-toggleButton
-            [(ngModel)]="value.selected"
-            [disabled]="value.selected"
-            (onChange)="selectFamilyValue(value)"
-            onLabel="{{ value.value }}"
-            offLabel="{{ value.value }}"
-          ></p-toggleButton>
-        </div>
-      </ng-template>
     </div>
+    <ng-template #elseBlock>
+      <div *ngFor="let value of dynamicFormService.valuesFamily">
+        <p-toggleButton
+          [(ngModel)]="value.selected"
+          [disabled]="value.selected"
+          (onChange)="selectFamilyValue(value)"
+          onLabel="{{ value.value }}"
+          offLabel="{{ value.value }}"
+        ></p-toggleButton>
+      </div>
+    </ng-template>
   </div>
 </div>

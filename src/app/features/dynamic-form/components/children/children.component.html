@@ -18,36 +18,35 @@
         ></p-button>
       </div>
     </div>
-    <div class="children__content">
-      <div
-        *ngIf="
-          this.childrenSelected &&
-            selectedFamilyValue !== 'N’avez pas d’enfant';
-          else elseBlock
-        "
-        class="children__content-selected"
-      >
-        <div *ngFor="let value of dynamicFormService.valuesDependantChild">
-          <p-toggleButton
-            [(ngModel)]="value.selected"
-            [disabled]="value.selected"
-            (onChange)="selectDependantChildValue(value)"
-            onLabel="{{ value.value }}"
-            offLabel="{{ value.value }}"
-          ></p-toggleButton>
-        </div>
+  </div>
+  <div class="children__content">
+    <div
+      *ngIf="
+        this.childrenSelected && selectedFamilyValue !== 'N’avez pas d’enfant';
+        else elseBlock
+      "
+      class="children__content-selected"
+    >
+      <div *ngFor="let value of dynamicFormService.valuesDependantChild">
+        <p-toggleButton
+          [(ngModel)]="value.selected"
+          [disabled]="value.selected"
+          (onChange)="selectDependantChildValue(value)"
+          onLabel="{{ value.value }}"
+          offLabel="{{ value.value }}"
+        ></p-toggleButton>
       </div>
-      <ng-template #elseBlock>
-        <div *ngFor="let value of dynamicFormService.valuesChildren">
-          <p-toggleButton
-            [(ngModel)]="value.selected"
-            [disabled]="value.selected"
-            (onChange)="selectChildrenValue(value)"
-            onLabel="{{ value.value }}"
-            offLabel="{{ value.value }}"
-          ></p-toggleButton>
-        </div>
-      </ng-template>
     </div>
+    <ng-template #elseBlock>
+      <div *ngFor="let value of dynamicFormService.valuesChildren">
+        <p-toggleButton
+          [(ngModel)]="value.selected"
+          [disabled]="value.selected"
+          (onChange)="selectChildrenValue(value)"
+          onLabel="{{ value.value }}"
+          offLabel="{{ value.value }}"
+        ></p-toggleButton>
+      </div>
+    </ng-template>
   </div>
 </div>

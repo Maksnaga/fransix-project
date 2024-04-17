@@ -35,53 +35,90 @@
         ></p-button>
       </ng-container>
     </div>
-    <div class="property-assets__content">
-      <ng-container *ngIf="this.dynamicFormService.isOwner; else default">
-        <ng-container *ngIf="dynamicFormService.propertyTypeIsSelected">
-          <div *ngFor="let value of dynamicFormService.propertyTypeValues">
-            <p-toggleButton
-              [(ngModel)]="value.selected"
-              [disabled]="value.selected"
-              (onChange)="selectPropertyTypeValue(value)"
-              onLabel="{{ value.value }}"
-              offLabel="{{ value.value }}"
-            ></p-toggleButton>
-          </div>
-        </ng-container>
-        <ng-container *ngIf="dynamicFormService.surfaceIsSelected">
-          <div *ngFor="let value of dynamicFormService.surfaceValues">
-            <p-toggleButton
-              [(ngModel)]="value.selected"
-              [disabled]="value.selected"
-              (onChange)="selectSurfaceValue(value)"
-              onLabel="{{ value.value }}"
-              offLabel="{{ value.value }}"
-            ></p-toggleButton>
-          </div>
-        </ng-container>
-        <ng-container *ngIf="dynamicFormService.estimateIsSelected">
-          <div *ngFor="let value of dynamicFormService.estimateValues">
-            <p-toggleButton
-              [(ngModel)]="value.selected"
-              [disabled]="value.selected"
-              (onChange)="selectEstimateValue(value)"
-              onLabel="{{ value.value }}"
-              offLabel="{{ value.value }}"
-            ></p-toggleButton>
-          </div>
-        </ng-container>
-      </ng-container>
-      <ng-template #default
-        ><div *ngFor="let value of dynamicFormService.propertyAssetsValues">
+  </div>
+  <div class="property-assets__content">
+    <ng-container *ngIf="this.dynamicFormService.isOwner; else default">
+      <ng-container *ngIf="dynamicFormService.propertyTypeIsSelected">
+        <div *ngFor="let value of dynamicFormService.propertyTypeValues">
           <p-toggleButton
             [(ngModel)]="value.selected"
             [disabled]="value.selected"
-            (onChange)="selectPropertyAssetsValue(value)"
+            (onChange)="selectPropertyTypeValue(value)"
             onLabel="{{ value.value }}"
             offLabel="{{ value.value }}"
           ></p-toggleButton>
         </div>
-      </ng-template>
-    </div>
+      </ng-container>
+      <ng-container *ngIf="dynamicFormService.surfaceIsSelected">
+        <div *ngFor="let value of dynamicFormService.surfaceValues">
+          <p-toggleButton
+            [(ngModel)]="value.selected"
+            [disabled]="value.selected"
+            (onChange)="selectSurfaceValue(value)"
+            onLabel="{{ value.value }}"
+            offLabel="{{ value.value }}"
+          ></p-toggleButton>
+        </div>
+      </ng-container>
+      <ng-container
+        *ngIf="
+          dynamicFormService.estimateIsSelected &&
+          !dynamicFormService.propertyFormIsCompleted
+        "
+      >
+        <div *ngFor="let value of dynamicFormService.estimateValues">
+          <p-toggleButton
+            [(ngModel)]="value.selected"
+            [disabled]="value.selected"
+            (onChange)="selectEstimateValue(value)"
+            onLabel="{{ value.value }}"
+            offLabel="{{ value.value }}"
+          ></p-toggleButton>
+        </div>
+      </ng-container>
+      @if(this.dynamicFormService.estimateIsSelected &&
+      dynamicFormService.propertyFormIsCompleted){
+      <div>
+        <p-checkbox
+          [(ngModel)]="dynamicFormService.creditInProgress"
+          [binary]="true"
+          inputId="binary"
+          (onChange)="changeCreditInProgress()"
+        ></p-checkbox>
+        <label for="binary"> Vous avez un crédit en court pour ce bien</label>
+      </div>
+      @if(dynamicFormService.creditInProgress){
+      <div>
+        Avec une mensualité de
+        <input
+          type="number"
+          pInputText
+          placeholder="Saisir une valeur"
+          (input)="changeMonthlyPaiement()"
+          [(ngModel)]="dynamicFormService.monthlyPayment"
+        />
+        € par mois qui se termine le
+        <p-calendar
+          [(ngModel)]="dynamicFormService.endingPayment"
+          [iconDisplay]="'input'"
+          inputId="endingPayment"
+          (onSelect)="changeMonthlyPaiement()"
+          (onInput)="changeMonthlyPaiement()"
+          [showIcon]="true"
+        ></p-calendar>
+      </div>
+      } }
+    </ng-container>
+    <ng-template #default
+      ><div *ngFor="let value of dynamicFormService.propertyAssetsValues">
+        <p-toggleButton
+          [(ngModel)]="value.selected"
+          [disabled]="value.selected"
+          (onChange)="selectPropertyAssetsValue(value)"
+          onLabel="{{ value.value }}"
+          offLabel="{{ value.value }}"
+        ></p-toggleButton>
+      </div>
+    </ng-template>
   </div>
 </div>

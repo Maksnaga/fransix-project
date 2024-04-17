@@ -40,6 +40,8 @@
     align-items: flex-start;
     gap: var(--11, 24px);
     align-self: stretch;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--Gray-Gray-200, #cfd6dd);
   }
 
   &__question {

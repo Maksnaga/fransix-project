@@ -34,7 +34,9 @@ export class WorkSituationComponent {
       this.dynamicFormService.disabledNextButton = true;
       if (
         this.dynamicFormService.workName &&
-        this.dynamicFormService.workName.length > 0
+        this.dynamicFormService.workName.length > 0 &&
+        this.dynamicFormService.workSalary &&
+        this.dynamicFormService.workSalary !== 0
       ) {
         this.dynamicFormService.disabledNextButton = false;
       }
@@ -49,7 +51,9 @@ export class WorkSituationComponent {
     value.selected = true;
     if (
       this.dynamicFormService.workName &&
-      this.dynamicFormService.workName.length > 0
+      this.dynamicFormService.workName.length > 0 &&
+      this.dynamicFormService.workSalary &&
+      this.dynamicFormService.workSalary !== 0
     ) {
       this.dynamicFormService.disabledNextButton = false;
     } else {
@@ -60,7 +64,9 @@ export class WorkSituationComponent {
   public changeWorkName(): void {
     if (
       this.dynamicFormService.workName &&
-      this.dynamicFormService.workName.length > 0
+      this.dynamicFormService.workName.length > 0 &&
+      this.dynamicFormService.workSalary &&
+      this.dynamicFormService.workSalary !== 0
     ) {
       this.dynamicFormService.disabledNextButton = false;
     } else {

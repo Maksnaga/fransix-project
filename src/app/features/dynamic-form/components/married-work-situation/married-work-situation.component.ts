@@ -33,7 +33,9 @@ export class MarriedWorkSituationComponent {
       this.dynamicFormService.disabledNextButton = true;
       if (
         this.dynamicFormService.marriedWorkName &&
-        this.dynamicFormService.marriedWorkName.length > 0
+        this.dynamicFormService.marriedWorkName.length > 0 &&
+        this.dynamicFormService.marriedWorkSalary &&
+        this.dynamicFormService.marriedWorkSalary !== 0
       ) {
         this.dynamicFormService.disabledNextButton = false;
       }
@@ -48,7 +50,9 @@ export class MarriedWorkSituationComponent {
     value.selected = true;
     if (
       this.dynamicFormService.marriedWorkName &&
-      this.dynamicFormService.marriedWorkName.length > 0
+      this.dynamicFormService.marriedWorkName.length > 0 &&
+      this.dynamicFormService.marriedWorkSalary &&
+      this.dynamicFormService.marriedWorkSalary !== 0
     ) {
       this.dynamicFormService.disabledNextButton = false;
     } else {
@@ -59,7 +63,9 @@ export class MarriedWorkSituationComponent {
   public changeWorkName(): void {
     if (
       this.dynamicFormService.marriedWorkName &&
-      this.dynamicFormService.marriedWorkName.length > 0
+      this.dynamicFormService.marriedWorkName.length > 0 &&
+      this.dynamicFormService.marriedWorkSalary &&
+      this.dynamicFormService.marriedWorkSalary !== 0
     ) {
       this.dynamicFormService.disabledNextButton = false;
     } else {

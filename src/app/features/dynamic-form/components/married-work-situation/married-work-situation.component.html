@@ -1,6 +1,8 @@
 <div class="married-work">
   <div class="married-work__core">
-    <div class="married-work__title">Votre situation professionnelle</div>
+    <div class="married-work__title">
+      Situation professionnelle de votre conjoint(e)
+    </div>
     <div class="married-work__question">
       Votre conjoint(e) exerce le métier de
       <input
@@ -16,6 +18,15 @@
         [disabled]="true"
         severity="secondary"
       ></p-button>
+      avec un salaire brut annuel de
+      <input
+        type="number"
+        pInputText
+        placeholder="Saisir une valeur"
+        (input)="changeWorkName()"
+        [(ngModel)]="dynamicFormService.marriedWorkSalary"
+      />
+      €.
     </div>
     <div class="married-work__content">
       <div *ngFor="let value of dynamicFormService.valuesMarriedWorkSituation">

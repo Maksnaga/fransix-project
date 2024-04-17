@@ -1,18 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 import { DynamicFormService } from 'src/app/features/dynamic-form/service/dynamic-form.service';
 
 @Component({
   selector: 'app-multiple-properties',
   standalone: true,
-  imports: [DropdownModule, FormsModule, CommonModule],
+  imports: [
+    DropdownModule,
+    FormsModule,
+    CommonModule,
+    CheckboxModule,
+    InputTextModule,
+    CalendarModule,
+  ],
   templateUrl: './multiple.component.html',
   styleUrl: './multiple.component.scss',
 })
 export class MultipleComponent implements OnInit {
   @Input() name!: string;
+
+  creditInProgress = false;
+  rentInProgress = false;
+  monthlyPaiement: number | undefined;
+  endingPaiement: Date | undefined;
+  rentValue: number | undefined;
+
   selectedProperty: any;
   selectedType: any;
   selectedSuperficy: any;
@@ -53,6 +70,19 @@ export class MultipleComponent implements OnInit {
       this.isFilled();
       this.dynamicFormService.progress = 80;
     }, 10);
+    this.creditInProgress = this.dynamicFormService.creditPropertiesMap.has(
+      this.name
+    );
+    this.rentInProgress = this.dynamicFormService.rentPropertiesMap.has(
+      this.name
+    );
+    this.monthlyPaiement = this.dynamicFormService.creditPropertiesMap.get(
+      this.name
+    )?.value;
+    this.endingPaiement = this.dynamicFormService.creditPropertiesMap.get(
+      this.name
+    )?.ending;
+    this.rentValue = this.dynamicFormService.rentPropertiesMap.get(this.name);
   }
 
   onPropertyChange(event: any) {

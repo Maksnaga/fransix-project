@@ -4,11 +4,22 @@ import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { DynamicFormService } from '../../service/dynamic-form.service';
 import { CommonModule } from '@angular/common';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { CalendarModule } from 'primeng/calendar';
 
 @Component({
   selector: 'app-property-assets',
   standalone: true,
-  imports: [ButtonModule, ToggleButtonModule, FormsModule, CommonModule],
+  imports: [
+    ButtonModule,
+    ToggleButtonModule,
+    FormsModule,
+    CommonModule,
+    CheckboxModule,
+    InputTextModule,
+    CalendarModule,
+  ],
   templateUrl: './property-assets.component.html',
   styleUrl: './property-assets.component.scss',
 })
@@ -55,25 +66,50 @@ export class PropertyAssetsComponent {
     this.dynamicFormService.isOwner = true;
     this.dynamicFormService.surfaceIsSelected = false;
     this.dynamicFormService.estimateIsSelected = false;
+    this.dynamicFormService.propertyFormIsCompleted = false;
+    this.dynamicFormService.surfaceValues.forEach((v) => (v.selected = false));
+    this.dynamicFormService.estimateValues.forEach((v) => (v.selected = false));
+    this.dynamicFormService.propertyTypeValues.forEach(
+      (v) => (v.selected = false)
+    );
+    this.dynamicFormService.disabledNextButton = true;
   }
 
   public selectSurface(): void {
     this.dynamicFormService.surfaceIsSelected = true;
     this.dynamicFormService.estimateIsSelected = false;
     this.dynamicFormService.propertyTypeIsSelected = false;
+    this.dynamicFormService.propertyFormIsCompleted = false;
+    this.dynamicFormService.surfaceValues.forEach((v) => (v.selected = false));
+    this.dynamicFormService.estimateValues.forEach((v) => (v.selected = false));
+    this.dynamicFormService.disabledNextButton = true;
+  }
+
+  public selectPropertyAssets(): void {
+    this.dynamicFormService.propetyOwnerIsSelected = false;
+    this.dynamicFormService.isOwner = false;
+    this.dynamicFormService.estimateIsSelected = false;
+    this.dynamicFormService.propertyTypeIsSelected = false;
+    this.dynamicFormService.surfaceIsSelected = false;
+    this.dynamicFormService.propertyFormIsCompleted = false;
+    this.dynamicFormService.surfaceValues.forEach((v) => (v.selected = false));
+    this.dynamicFormService.estimateValues.forEach((v) => (v.selected = false));
+    this.dynamicFormService.propertyTypeValues.forEach(
+      (v) => (v.selected = false)
+    );
+    this.dynamicFormService.propertyAssetsValues.forEach(
+      (v) => (v.selected = false)
+    );
+    this.dynamicFormService.disabledNextButton = true;
   }
 
   public selectEstimate(): void {
     this.dynamicFormService.surfaceIsSelected = false;
     this.dynamicFormService.estimateIsSelected = true;
     this.dynamicFormService.propertyTypeIsSelected = false;
-  }
-
-  public selectPropertyAssets(): void {
-    this.dynamicFormService.propetyOwnerIsSelected = false;
-    this.dynamicFormService.isOwner = false;
-    this.dynamicFormService.propertyTypeIsSelected = false;
-    this.dynamicFormService.surfaceIsSelected = false;
+    this.dynamicFormService.propertyFormIsCompleted = false;
+    this.dynamicFormService.estimateValues.forEach((v) => (v.selected = false));
+    this.dynamicFormService.disabledNextButton = true;
   }
 
   selectPropertyAssetsValue(value: { value: string; selected: boolean }): void {
@@ -112,5 +148,27 @@ export class PropertyAssetsComponent {
     this.dynamicFormService.estimateValues.forEach((v) => (v.selected = false));
     value.selected = true;
     this.dynamicFormService.disabledNextButton = false;
+    this.dynamicFormService.propertyFormIsCompleted = true;
+  }
+
+  public changeMonthlyPaiement(): void {
+    if (
+      this.dynamicFormService.creditInProgress &&
+      this.dynamicFormService.monthlyPayment &&
+      this.dynamicFormService.monthlyPayment !== 0 &&
+      this.dynamicFormService.endingPayment
+    ) {
+      this.dynamicFormService.disabledNextButton = false;
+    } else {
+      this.dynamicFormService.disabledNextButton = true;
+    }
+  }
+
+  public changeCreditInProgress(): void {
+    if (this.dynamicFormService.creditInProgress) {
+      this.dynamicFormService.disabledNextButton = true;
+    } else {
+      this.dynamicFormService.disabledNextButton = false;
+    }
   }
 }

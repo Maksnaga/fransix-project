@@ -1,6 +1,9 @@
 :host {
   width: 100%;
 }
+p-checkbox {
+  margin-right: 10px;
+}
 
 .property-assets {
   display: flex;
@@ -40,6 +43,8 @@
     align-items: flex-start;
     gap: var(--11, 24px);
     align-self: stretch;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--Gray-Gray-200, #cfd6dd);
   }
 
   &__question {
@@ -53,6 +58,11 @@
 }
 
 :host ::ng-deep {
+  .p-checkbox .p-checkbox-box.p-highlight {
+    border-color: #ffffff;
+    background: #0e7490;
+  }
+
   .p-button.p-button-secondary,
   .p-buttonset.p-button-secondary > .p-button,
   .p-splitbutton.p-button-secondary > .p-button {
