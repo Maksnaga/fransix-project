@@ -3,12 +3,12 @@
     &-service {
       &-begin {
         display: flex;
-        padding: 128px 48px;
-        justify-content: center;
+        padding: var(--11, 24px) 48px 128px 48px;
         align-items: center;
-        gap: var(--Component-Padding-6xLarge, 64px);
+        gap: 32px;
         align-self: stretch;
-
+        justify-content: center;
+        
         &--text {
           display: grid;
         }
