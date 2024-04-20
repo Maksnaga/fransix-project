@@ -54,6 +54,12 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .family-married__question {
+    display: contents;
+  }
+}
+
 :host ::ng-deep {
   .p-button.p-button-secondary,
   .p-buttonset.p-button-secondary > .p-button,

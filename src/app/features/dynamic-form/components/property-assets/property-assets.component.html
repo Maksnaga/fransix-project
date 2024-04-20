@@ -16,16 +16,6 @@
           (onClick)="selectPropertyType()"
           severity="secondary"
         ></p-button>
-        d'une superficie de
-        <p-button
-          label="{{ selectedSurfaceValue }}"
-          [disabled]="
-            !dynamicFormService.estimateIsSelected &&
-            !dynamicFormService.surfaceIsSelected
-          "
-          (onClick)="selectSurface()"
-          severity="secondary"
-        ></p-button>
         , d’une valeur estimée a
         <p-button
           label="{{ selectedEstimateValue }}"
@@ -44,17 +34,6 @@
             [(ngModel)]="value.selected"
             [disabled]="value.selected"
             (onChange)="selectPropertyTypeValue(value)"
-            onLabel="{{ value.value }}"
-            offLabel="{{ value.value }}"
-          ></p-toggleButton>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="dynamicFormService.surfaceIsSelected">
-        <div *ngFor="let value of dynamicFormService.surfaceValues">
-          <p-toggleButton
-            [(ngModel)]="value.selected"
-            [disabled]="value.selected"
-            (onChange)="selectSurfaceValue(value)"
             onLabel="{{ value.value }}"
             offLabel="{{ value.value }}"
           ></p-toggleButton>
@@ -88,7 +67,7 @@
         <label for="binary"> Vous avez un crédit en court pour ce bien</label>
       </div>
       @if(dynamicFormService.creditInProgress){
-      <div>
+      <div class="property-assets__payment">
         Avec une mensualité de
         <input
           type="number"

@@ -44,6 +44,7 @@ export class DynamicFormService {
     { value: 'Cadre', selected: false },
     { value: 'Non cadre', selected: false },
     { value: 'Chef d’entreprise', selected: false },
+    { value: 'Retraité', selected: false },
   ];
 
   valuesMarriedWorkSituation: { value: string; selected: boolean }[] = [
@@ -54,6 +55,7 @@ export class DynamicFormService {
     { value: 'Cadre', selected: false },
     { value: 'Non cadre', selected: false },
     { value: 'Chef d’entreprise', selected: false },
+    { value: 'Retraité', selected: false },
   ];
 
   propertyAssetsValues: { value: string; selected: boolean }[] = [
@@ -68,15 +70,6 @@ export class DynamicFormService {
     { value: 'Un appartement', selected: false },
   ];
 
-  surfaceValues: { value: string; selected: boolean }[] = [
-    { value: 'Entre 0 et 100m2', selected: false },
-    { value: 'Entre 100 et 200m2', selected: false },
-    { value: 'Entre 200 et 300m2', selected: false },
-    { value: 'Entre 300 et 400m2', selected: false },
-    { value: 'Entre 400 et 500m2', selected: false },
-    { value: 'Plus de 500m2', selected: false },
-  ];
-
   estimateValues: { value: string; selected: boolean }[] = [
     { value: 'Entre 0 est 250 000€', selected: false },
     { value: 'Entre 250 000 est 500 000€', selected: false },
@@ -88,6 +81,11 @@ export class DynamicFormService {
   otherPropertiesValues: { value: string; selected: boolean }[] = [
     { value: 'Ne possédez pas d’autre bien immobiliers', selected: false },
     { value: 'Possédez d’autres bien immobiliers', selected: false },
+  ];
+
+  otherFinancialValues: { value: string; selected: boolean }[] = [
+    { value: 'Ne possédez pas d’autres épargnes', selected: false },
+    { value: 'Possédez d’autres épargnes', selected: false },
   ];
 
   marriedBirthday: Date | undefined;
@@ -113,7 +111,6 @@ export class DynamicFormService {
 
   propetyOwnerIsSelected = false;
   propertyTypeIsSelected = false;
-  surfaceIsSelected = false;
   estimateIsSelected = false;
   propertyFormIsCompleted = false;
 
@@ -127,4 +124,11 @@ export class DynamicFormService {
     { value: number | undefined; ending: Date | undefined }
   > = new Map();
   rentPropertiesMap: Map<string, number | undefined> = new Map();
+
+  hasOtherFinancialAssets = false;
+  financialAssetsMap: Map<
+    string,
+    Map<string, { name: string; code: string }[]>
+  > = new Map();
+  currentAccount: number | undefined;
 }

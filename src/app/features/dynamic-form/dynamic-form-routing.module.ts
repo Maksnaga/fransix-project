@@ -9,6 +9,7 @@ import { WorkSituationComponent } from './components/work-situation/work-situati
 import { MarriedWorkSituationComponent } from './components/married-work-situation/married-work-situation.component';
 import { PropertyAssetsComponent } from './components/property-assets/property-assets.component';
 import { PropertiesComponent } from './components/properties/properties.component';
+import { FinancialAssetsComponent } from './components/financial-assets/financial-assets.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'married-work', component: MarriedWorkSituationComponent },
       { path: 'property', component: PropertyAssetsComponent },
       { path: 'other-property', component: PropertiesComponent },
+      { path: 'financial', component: FinancialAssetsComponent },
     ],
   },
 ];

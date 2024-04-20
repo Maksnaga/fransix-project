@@ -18,6 +18,7 @@ export class DynamicFormComponent implements OnInit {
     '/form/married-work',
     '/form/property',
     '/form/other-property',
+    '/form/financial',
   ];
   currentRouteIndex = 1;
 

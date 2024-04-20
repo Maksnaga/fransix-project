@@ -1,11 +1,8 @@
 :host {
   width: 100%;
 }
-p-checkbox {
-  margin-right: 10px;
-}
 
-.property-assets {
+.financial {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -57,18 +54,7 @@ p-checkbox {
   }
 }
 
-@media (max-width: 1200px) {
-  .property-assets__payment {
-    display: contents;
-  }
-}
-
 :host ::ng-deep {
-  .p-checkbox .p-checkbox-box.p-highlight {
-    border-color: #ffffff;
-    background: #0e7490;
-  }
-
   .p-button.p-button-secondary,
   .p-buttonset.p-button-secondary > .p-button,
   .p-splitbutton.p-button-secondary > .p-button {

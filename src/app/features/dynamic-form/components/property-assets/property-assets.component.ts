@@ -39,13 +39,6 @@ export class PropertyAssetsComponent {
     return selected ? selected.value : 'Une maison';
   }
 
-  get selectedSurfaceValue(): string {
-    const selected = this.dynamicFormService.surfaceValues.find(
-      (v) => v.selected
-    );
-    return selected ? selected.value : 'Entre 0 et 100m2';
-  }
-
   get selectedEstimateValue(): string {
     const selected = this.dynamicFormService.estimateValues.find(
       (v) => v.selected
@@ -56,6 +49,7 @@ export class PropertyAssetsComponent {
   ngOnInit(): void {
     setTimeout(() => {
       this.dynamicFormService.progress = 60;
+      this.dynamicFormService.disabledNextButton = true;
     }, 10);
   }
 
@@ -64,24 +58,12 @@ export class PropertyAssetsComponent {
   public selectPropertyType(): void {
     this.dynamicFormService.propertyTypeIsSelected = true;
     this.dynamicFormService.isOwner = true;
-    this.dynamicFormService.surfaceIsSelected = false;
     this.dynamicFormService.estimateIsSelected = false;
     this.dynamicFormService.propertyFormIsCompleted = false;
-    this.dynamicFormService.surfaceValues.forEach((v) => (v.selected = false));
     this.dynamicFormService.estimateValues.forEach((v) => (v.selected = false));
     this.dynamicFormService.propertyTypeValues.forEach(
       (v) => (v.selected = false)
     );
-    this.dynamicFormService.disabledNextButton = true;
-  }
-
-  public selectSurface(): void {
-    this.dynamicFormService.surfaceIsSelected = true;
-    this.dynamicFormService.estimateIsSelected = false;
-    this.dynamicFormService.propertyTypeIsSelected = false;
-    this.dynamicFormService.propertyFormIsCompleted = false;
-    this.dynamicFormService.surfaceValues.forEach((v) => (v.selected = false));
-    this.dynamicFormService.estimateValues.forEach((v) => (v.selected = false));
     this.dynamicFormService.disabledNextButton = true;
   }
 
@@ -90,9 +72,7 @@ export class PropertyAssetsComponent {
     this.dynamicFormService.isOwner = false;
     this.dynamicFormService.estimateIsSelected = false;
     this.dynamicFormService.propertyTypeIsSelected = false;
-    this.dynamicFormService.surfaceIsSelected = false;
     this.dynamicFormService.propertyFormIsCompleted = false;
-    this.dynamicFormService.surfaceValues.forEach((v) => (v.selected = false));
     this.dynamicFormService.estimateValues.forEach((v) => (v.selected = false));
     this.dynamicFormService.propertyTypeValues.forEach(
       (v) => (v.selected = false)
@@ -104,7 +84,6 @@ export class PropertyAssetsComponent {
   }
 
   public selectEstimate(): void {
-    this.dynamicFormService.surfaceIsSelected = false;
     this.dynamicFormService.estimateIsSelected = true;
     this.dynamicFormService.propertyTypeIsSelected = false;
     this.dynamicFormService.propertyFormIsCompleted = false;
@@ -131,15 +110,6 @@ export class PropertyAssetsComponent {
       (v) => (v.selected = false)
     );
     value.selected = true;
-    this.dynamicFormService.surfaceIsSelected = true;
-    this.dynamicFormService.propertyTypeIsSelected = false;
-    this.dynamicFormService.estimateIsSelected = false;
-  }
-
-  selectSurfaceValue(value: { value: string; selected: boolean }): void {
-    this.dynamicFormService.surfaceValues.forEach((v) => (v.selected = false));
-    value.selected = true;
-    this.dynamicFormService.surfaceIsSelected = false;
     this.dynamicFormService.estimateIsSelected = true;
     this.dynamicFormService.propertyTypeIsSelected = false;
   }

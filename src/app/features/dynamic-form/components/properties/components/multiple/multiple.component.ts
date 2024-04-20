@@ -68,7 +68,7 @@ export class MultipleComponent implements OnInit {
     this.selectedValue = map?.get('value');
     setTimeout(() => {
       this.isFilled();
-      this.dynamicFormService.progress = 80;
+      this.dynamicFormService.progress = 75;
     }, 10);
     this.creditInProgress = this.dynamicFormService.creditPropertiesMap.has(
       this.name

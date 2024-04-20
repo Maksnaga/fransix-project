@@ -1,0 +1,56 @@
+<div class="financial">
+  <div class="financial__core">
+    <div class="financial__title">Votre patrimoine financier</div>
+    <div class="financial__question">
+      Vous avez actuellement sur votre compte courant
+      <input
+        type="number"
+        pInputText
+        placeholder="Saisir une valeur"
+        [(ngModel)]="dynamicFormService.currentAccount"
+      />
+      @if((dynamicFormService.currentAccount ?? 0) > 0) { , et vous
+      <p-button
+        label="{{ selectedOtherFinancialValues }}"
+        [disabled]="true"
+        severity="secondary"
+      ></p-button>
+      }
+    </div>
+  </div>
+  <div class="financial__content">
+    @if ((!dynamicFormService.hasOtherFinancialAssets ||
+    dynamicFormService.financialAssetsMap.size === 0 ) &&
+    (dynamicFormService.currentAccount ?? 0) > 0) {
+    <div *ngFor="let value of dynamicFormService.otherFinancialValues">
+      <p-toggleButton
+        [(ngModel)]="value.selected"
+        [disabled]="value.selected"
+        (onChange)="selectOtherFinancialValue(value)"
+        onLabel="{{ value.value }}"
+        offLabel="{{ value.value }}"
+      ></p-toggleButton>
+    </div>
+    } @if (dynamicFormService.hasOtherFinancialAssets){
+    <ng-container
+      *ngFor="
+        let entry of dynamicFormService.financialAssetsMap | keyvalue;
+        let i = index
+      "
+    >
+      <app-multiple-financial
+        [name]="'Épargne ' + (i + 1)"
+      ></app-multiple-financial>
+    </ng-container>
+
+    <p-button
+      severity="secondary"
+      label="Ajouter un patrimoine"
+      icon="pi pi-plus"
+      iconPos="right"
+      (click)="addFinancial()"
+    ></p-button>
+
+    }
+  </div>
+</div>

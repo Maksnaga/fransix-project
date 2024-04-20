@@ -1,0 +1,36 @@
+<div class="multiple">
+  <div class="multiple__content">
+    <div class="multiple__header">
+      <div class="multiple__title">{{ name }} :</div>
+      <div class="multiple__icon" (click)="removeFinancial()">
+        <i class="pi pi-times"></i>
+      </div>
+    </div>
+    <div class="multiple__selector">
+      Vous possédez
+      <p-dropdown
+        [(ngModel)]="selectedAssuranceType"
+        optionLabel="name"
+        [options]="assurances"
+        (onChange)="onAssuranceTypeChange($event)"
+        placeholder="Choisissez un type d’épargne"
+      ></p-dropdown>
+      , d’un montant de
+      <input
+        type="number"
+        pInputText
+        placeholder="Saisir une valeur"
+        (ngModelChange)="onAmountChange($event)"
+        [(ngModel)]="amount"
+      />
+      €, avec en close bénéficiaire
+      <p-dropdown
+        [(ngModel)]="selectedBeneficiary"
+        optionLabel="name"
+        [options]="beneficiaries"
+        (onChange)="onBeneficiaryChange($event)"
+        placeholder="Choisissez une option"
+      ></p-dropdown>
+    </div>
+  </div>
+</div>

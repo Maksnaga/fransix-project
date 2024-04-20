@@ -32,6 +32,12 @@ export class PropertiesComponent {
 
   constructor(public dynamicFormService: DynamicFormService) {}
 
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.dynamicFormService.progress = 70;
+    }, 10);
+  }
+
   selectOtherPropertiesValue(value: {
     value: string;
     selected: boolean;
