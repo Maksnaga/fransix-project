@@ -34,10 +34,10 @@ export class DynamicFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // const currentRoute = localStorage.getItem('currentRoute');
-    // if (currentRoute && currentRoute !== '/form') {
-    //   this.router.navigate(['/form']);
-    // }
+    const currentRoute = localStorage.getItem('currentRoute');
+    if (currentRoute && currentRoute !== '/form') {
+      this.router.navigate(['/form']);
+    }
   }
 
   next(): void {
