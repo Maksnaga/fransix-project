@@ -88,6 +88,14 @@ export class DynamicFormService {
     { value: 'Possédez d’autres épargnes', selected: false },
   ];
 
+  contactTypeValues: { value: string; selected: boolean }[] = [
+    { value: 'Être contacté par téléphone par un expert', selected: false },
+    {
+      value: 'Ne pas être contacté par téléphone par un expert',
+      selected: false,
+    },
+  ];
+
   marriedBirthday: Date | undefined;
   isMarried: boolean = false;
   spouseInformation: {
@@ -131,4 +139,7 @@ export class DynamicFormService {
     Map<string, { name: string; code: string }[]>
   > = new Map();
   currentAccount: number | undefined;
+
+  userMail: string | undefined;
+  userPhone: string | undefined;
 }

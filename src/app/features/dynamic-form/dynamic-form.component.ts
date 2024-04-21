@@ -19,6 +19,7 @@ export class DynamicFormComponent implements OnInit {
     '/form/property',
     '/form/other-property',
     '/form/financial',
+    '/form/send',
   ];
   currentRouteIndex = 1;
 
@@ -34,10 +35,10 @@ export class DynamicFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const currentRoute = localStorage.getItem('currentRoute');
-    if (currentRoute && currentRoute !== '/form') {
-      this.router.navigate(['/form']);
-    }
+    // const currentRoute = localStorage.getItem('currentRoute');
+    // if (currentRoute && currentRoute !== '/form') {
+    //   this.router.navigate(['/form']);
+    // }
   }
 
   next(): void {

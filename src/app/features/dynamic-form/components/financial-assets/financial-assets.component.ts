@@ -35,6 +35,12 @@ export class FinancialAssetsComponent {
   ngOnInit(): void {
     setTimeout(() => {
       this.dynamicFormService.progress = 90;
+      if (
+        this.dynamicFormService.currentAccount == null ||
+        this.dynamicFormService.currentAccount === 0
+      ) {
+        this.dynamicFormService.disabledNextButton = true;
+      }
     }, 10);
   }
 
@@ -57,5 +63,16 @@ export class FinancialAssetsComponent {
       `Épargne ${this.dynamicFormService.financialAssetsMap.size + 1}`,
       new Map()
     );
+  }
+
+  public updateCurrentAccount(): void {
+    if (
+      this.dynamicFormService.currentAccount &&
+      this.dynamicFormService.currentAccount !== 0
+    ) {
+      this.dynamicFormService.disabledNextButton = false;
+    } else {
+      this.dynamicFormService.disabledNextButton = true;
+    }
   }
 }

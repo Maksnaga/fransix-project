@@ -8,6 +8,7 @@
         pInputText
         placeholder="Saisir une valeur"
         [(ngModel)]="dynamicFormService.currentAccount"
+        (input)="updateCurrentAccount()"
       />
       @if((dynamicFormService.currentAccount ?? 0) > 0) { , et vous
       <p-button

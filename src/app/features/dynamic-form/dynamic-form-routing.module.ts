@@ -10,6 +10,7 @@ import { MarriedWorkSituationComponent } from './components/married-work-situati
 import { PropertyAssetsComponent } from './components/property-assets/property-assets.component';
 import { PropertiesComponent } from './components/properties/properties.component';
 import { FinancialAssetsComponent } from './components/financial-assets/financial-assets.component';
+import { SendComponent } from './components/send/send.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'property', component: PropertyAssetsComponent },
       { path: 'other-property', component: PropertiesComponent },
       { path: 'financial', component: FinancialAssetsComponent },
+      { path: 'send', component: SendComponent },
     ],
   },
 ];

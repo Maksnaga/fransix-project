@@ -1,0 +1,47 @@
+<div class="send">
+  <div class="send__core">
+    <div class="send__title">Dernière étape pour recevoir une expertise !</div>
+    <div class="send__question">
+      Vous souhaitez recevoir l’analyse approfondie de votre dossier à l’adresse
+      <input
+        type="text"
+        pInputText
+        placeholder="Adresse email"
+        [(ngModel)]="dynamicFormService.userMail"
+        (input)="updateUserMail()"
+      />
+      @if(dynamicFormService.userMail) { , et également
+      <p-button
+        label="{{ selectedContactTypeValues }}"
+        [disabled]="true"
+        severity="secondary"
+      ></p-button>
+      }
+    </div>
+  </div>
+  <div class="send__content">
+    @if ( dynamicFormService.userMail && dynamicFormService.userMail.length > 0
+    && !this.contactByPhone) {
+    <div *ngFor="let value of dynamicFormService.contactTypeValues">
+      <p-toggleButton
+        [(ngModel)]="value.selected"
+        [disabled]="value.selected"
+        (onChange)="selectContactTypeValue(value)"
+        onLabel="{{ value.value }}"
+        offLabel="{{ value.value }}"
+      ></p-toggleButton>
+    </div>
+    } @if (this.contactByPhone) {
+    <div>
+      au numéro suivant :
+      <input
+        type="text"
+        pInputText
+        placeholder="Numéro de téléphone"
+        [(ngModel)]="dynamicFormService.userPhone"
+        (input)="updateUserPhone()"
+      />
+    </div>
+    }
+  </div>
+</div>
