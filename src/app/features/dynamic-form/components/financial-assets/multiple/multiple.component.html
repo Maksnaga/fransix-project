@@ -23,7 +23,8 @@
         (ngModelChange)="onAmountChange($event)"
         [(ngModel)]="amount"
       />
-      €, avec en close bénéficiaire
+      €, @if(selectedAssuranceType.name === 'Une assurance vie') { avec en
+      clause bénéficiaire
       <p-dropdown
         [(ngModel)]="selectedBeneficiary"
         optionLabel="name"
@@ -31,6 +32,7 @@
         (onChange)="onBeneficiaryChange($event)"
         placeholder="Choisissez une option"
       ></p-dropdown>
+      }
     </div>
   </div>
 </div>
