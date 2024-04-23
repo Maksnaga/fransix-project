@@ -78,6 +78,7 @@
         />
         € par mois qui se termine le
         <p-calendar
+          [touchUI]="true"
           [(ngModel)]="dynamicFormService.endingPayment"
           [iconDisplay]="'input'"
           inputId="endingPayment"
