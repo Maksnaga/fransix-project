@@ -23,7 +23,7 @@
         (ngModelChange)="onAmountChange($event)"
         [(ngModel)]="amount"
       />
-      €, @if(selectedAssuranceType.name === 'Une assurance vie') { avec en
+      €, @if(selectedAssuranceType && selectedAssuranceType.name === 'Une assurance vie') { avec en
       clause bénéficiaire
       <p-dropdown
         [(ngModel)]="selectedBeneficiary"
@@ -32,7 +32,16 @@
         (onChange)="onBeneficiaryChange($event)"
         placeholder="Choisissez une option"
       ></p-dropdown>
-      }
+      }@else if(selectedAssuranceType && selectedAssuranceType.name === 'Un PEL') { ouvert en
+        <p-calendar
+          [(ngModel)]="dynamicFormService.pelCreationDate"
+          [iconDisplay]="'input'"
+          [touchUI]="true"
+          [showIcon]="true"
+          view="year"
+          dateFormat="yy"
+        ></p-calendar>
+        } 
     </div>
   </div>
 </div>
