@@ -46,10 +46,14 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1023px) {
   .dynamic-form {
     &__next-button {
       display: block;
+    }
+    &__content {
+      border: 0px;
+      padding: 0;
     }
   }
 }
