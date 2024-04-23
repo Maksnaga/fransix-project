@@ -18,6 +18,7 @@ export class DynamicFormService {
   valuesMarried: { value: string; selected: boolean }[] = [
     { value: 'la communauté réduite aux acquêts', selected: true },
     { value: 'la séparation de biens', selected: false },
+    { value: 'autre', selected: false },
   ];
 
   valuesChildren: { value: string; selected: boolean }[] = [

@@ -28,7 +28,14 @@ export class MultipleComponent {
   amount: any;
   selectedBeneficiary: any;
 
-  assurances = [{ name: 'Une assurance vie', code: 'av' }];
+  assurances = [
+    { name: 'Une assurance vie', code: 'av' },
+    { name: 'Un livret A', code: 'la' },
+    { name: 'Un LDDS', code: 'ldds' },
+    { name: 'Un PEL', code: 'pel' },
+    { name: 'Un CEL', code: 'cel' },
+    { name: 'Un PEA', code: 'pea' },
+  ];
   beneficiaries = [{ name: 'Une assurance vie', code: 'av' }];
 
   constructor(public dynamicFormService: DynamicFormService) {}
