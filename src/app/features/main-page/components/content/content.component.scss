@@ -49,7 +49,6 @@
           height: 495px;
           flex-direction: column;
           justify-content: space-between;
-          align-items: flex-end;
           flex: 1 0 0;
 
           &-divider {
@@ -80,6 +79,16 @@
       }
     }
   }
+}
+
+div.video-container {
+  width: 100%;
+  height: 100vh; /* vh stands for viewport height, 100vh will be 100% of the viewport height */
+}
+
+video {
+  width: 100%;
+  height: auto; /* This will maintain the aspect ratio of the video while making it as wide as its container */
 }
 
 .tablet,
