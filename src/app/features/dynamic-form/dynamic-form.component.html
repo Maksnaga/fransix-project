@@ -14,7 +14,7 @@
     </div>
   </div>
   <div class="dynamic-form__content"><router-outlet></router-outlet></div>
-  @if(currentRouteIndex === 10){
+  @if(currentRouteIndex !== 10){
   <div class="dynamic-form__next-button">
     <p-button
       [disabled]="disabledNextButton()"
