@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+.error {
+  color: red;
+}
+
 .send {
   display: flex;
   flex-direction: column;
@@ -52,6 +56,23 @@
     align-self: stretch;
     flex-wrap: wrap;
   }
+}
+
+.send__footer {
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  display: flex;
+  padding: 16px 16px 16px 0px;
+  gap: var(--11, 24px);
+  align-self: stretch;
+  margin-left: 0px;
+  margin-bottom: 24px;
+}
+
+.send__footer .disclaimer {
+  font-size: 0.8rem;
+  color: #666;
 }
 
 :host ::ng-deep {

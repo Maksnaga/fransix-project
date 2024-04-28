@@ -76,22 +76,44 @@ export class MultipleComponent {
   }
 
   isFilled(): void {
-    this.dynamicFormService.disabledNextButton = false;
+    this.dynamicFormService.disabledNextButton = true;
 
-    for (let [
-      key,
-      innerMap,
-    ] of this.dynamicFormService.financialAssetsMap.entries()) {
+    const innerMap = this.dynamicFormService.financialAssetsMap.get(this.name);
+
+    if (innerMap) {
       const assuranceFilled =
         innerMap.has('assurances') && innerMap.get('assurances') !== null;
       const beneficiariesFilled =
         innerMap.has('beneficiaries') && innerMap.get('beneficiaries') !== null;
       const amountFilled =
-        innerMap.has('amount') && innerMap.get('amount') !== null;
-      if (!(assuranceFilled && beneficiariesFilled && amountFilled)) {
-        this.dynamicFormService.disabledNextButton = true;
+        innerMap.has('amount') &&
+        innerMap.get('amount') !== null &&
+        (innerMap.get('amount') as any) > 0;
+
+      if (assuranceFilled && beneficiariesFilled && amountFilled) {
+        this.dynamicFormService.disabledNextButton = false;
+      }
+      if (
+        assuranceFilled &&
+        innerMap.get('assurances')?.name !== 'Une assurance vie' &&
+        innerMap.get('assurances')?.name !== 'Un PEL' &&
+        amountFilled
+      ) {
+        this.dynamicFormService.disabledNextButton = false;
+      }
+
+      if (
+        innerMap.get('assurances')?.name === 'Un PEL' &&
+        amountFilled &&
+        this.dynamicFormService.pelCreationDate != null
+      ) {
+        this.dynamicFormService.disabledNextButton = false;
       }
     }
+  }
+
+  selectPelCreationDate(): void {
+    this.isFilled();
   }
 
   removeFinancial(): void {

@@ -11,7 +11,6 @@ import { BeginComponent } from './components/begin/begin.component';
 import { MainComponent } from './components/main/main.component';
 import { HeadbandComponent } from './components/headband/headband.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { EmailService } from 'src/app/service/mail.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -32,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HttpClientModule,
   ],
-  providers: [EmailService],
+  providers: [],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -66,13 +65,15 @@ export class MainPageComponent implements AfterViewInit {
     'protection',
   ];
 
-  constructor(private emailService: EmailService, private router: Router) {}
+  constructor(private router: Router) {}
 
   ngAfterViewInit(): void {
-    this.mainSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
-    this.observeSection(this.mainSection);
-    this.observeSection(this.serviceSection);
-    this.observeSection(this.footerSection);
+    setTimeout(() => {
+      this.mainSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      this.observeSection(this.mainSection);
+      this.observeSection(this.serviceSection);
+      this.observeSection(this.footerSection);
+    }, 10);
   }
 
   private observeSection(section: ElementRef): void {
@@ -122,13 +123,5 @@ export class MainPageComponent implements AfterViewInit {
 
   public formRedirect(): void {
     this.router.navigate(['/form']);
-    // this.emailService.sendEmail({}).then(
-    //   (response) => {
-    //     console.log('SUCCESS!', response.status, response.text);
-    //   },
-    //   (err) => {
-    //     console.log('FAILED...', err);
-    //   }
-    // );
   }
 }

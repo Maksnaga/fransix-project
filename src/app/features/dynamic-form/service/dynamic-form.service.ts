@@ -137,7 +137,7 @@ export class DynamicFormService {
   hasOtherFinancialAssets = false;
   financialAssetsMap: Map<
     string,
-    Map<string, { name: string; code: string }[]>
+    Map<string, { name: string; code: string }>
   > = new Map();
   currentAccount: number | undefined;
   pelCreationDate: Date | undefined;

@@ -3,14 +3,19 @@
     <div class="send__title">Dernière étape pour recevoir une expertise !</div>
     <div class="send__question">
       Vous souhaitez recevoir l’analyse approfondie de votre dossier à l’adresse
-      <input
-        type="text"
-        pInputText
-        placeholder="Adresse email"
-        [(ngModel)]="dynamicFormService.userMail"
-        (input)="updateUserMail()"
-      />
-      @if(dynamicFormService.userMail) { , et également
+      <div>
+        <input
+          type="text"
+          pInputText
+          placeholder="Adresse email"
+          [(ngModel)]="dynamicFormService.userMail"
+          (input)="updateUserMail()"
+          [ngClass]="{ 'ng-invalid ng-dirty': emailError }"
+        />
+        <div *ngIf="emailError" class="error">{{ emailError }}</div>
+      </div>
+
+      @if(dynamicFormService.userMail) { et également
       <p-button
         label="{{ selectedContactTypeValues }}"
         [disabled]="true"
@@ -20,8 +25,8 @@
     </div>
   </div>
   <div class="send__content">
-    @if ( dynamicFormService.userMail && dynamicFormService.userMail.length > 0
-    && !this.contactByPhone) {
+    @if ( dynamicFormService.userMail && dynamicFormService.userMail.length > 0)
+    {
     <div *ngFor="let value of dynamicFormService.contactTypeValues">
       <p-toggleButton
         [(ngModel)]="value.selected"
@@ -32,16 +37,37 @@
       ></p-toggleButton>
     </div>
     } @if (this.contactByPhone) {
-    <div>
+    <div style="display: flex; align-items: baseline">
       au numéro suivant :
-      <input
-        type="text"
-        pInputText
-        placeholder="Numéro de téléphone"
-        [(ngModel)]="dynamicFormService.userPhone"
-        (input)="updateUserPhone()"
-      />
+      <div style="display: flex; flex-flow: column; margin-left: 1rem">
+        <input
+          type="text"
+          pInputText
+          placeholder="Numéro de téléphone"
+          [(ngModel)]="dynamicFormService.userPhone"
+          (input)="updateUserPhone()"
+          [ngClass]="{ 'ng-invalid ng-dirty': phoneError }"
+        />
+        <div *ngIf="phoneError" class="error">{{ phoneError }}</div>
+      </div>
     </div>
     }
   </div>
 </div>
+
+<div class="send__footer">
+  <p-button
+    icon="pi pi-send"
+    iconPos="right"
+    severity="help"
+    label="Envoyer"
+    (onClick)="send()"
+  ></p-button>
+  <p class="disclaimer">
+    En soumettant ce formulaire, j’accepte que mes informations soient utilisées
+    exclusivement dans le cadre de ma demande et de la relation commerciale
+    éthique et personnalisée qui pourrait en découler si je le souhaite.
+  </p>
+</div>
+
+<p-toast position="bottom-center" key="bc"></p-toast>

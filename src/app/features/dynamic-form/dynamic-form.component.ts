@@ -35,10 +35,10 @@ export class DynamicFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const currentRoute = localStorage.getItem('currentRoute');
-    if (currentRoute && currentRoute !== '/form') {
-      this.router.navigate(['/form']);
-    }
+    // const currentRoute = localStorage.getItem('currentRoute');
+    // if (currentRoute && currentRoute !== '/form') {
+    //   this.router.navigate(['/form']);
+    // }
   }
 
   next(): void {
@@ -65,7 +65,7 @@ export class DynamicFormComponent implements OnInit {
       if (this.currentRouteIndex === 7 && !this.dynamicFormService.isMarried) {
         this.currentRouteIndex--;
       }
-      if (this.currentRouteIndex === 8 && !this.dynamicFormService.isOwner) {
+      if (this.currentRouteIndex === 9 && !this.dynamicFormService.isOwner) {
         this.currentRouteIndex--;
       }
       this.currentRouteIndex--;

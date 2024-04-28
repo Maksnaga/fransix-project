@@ -27,7 +27,7 @@ export class FinancialAssetsComponent {
       (v) => v.selected
     );
 
-    return selected ? selected.value : 'Possédez d’autres épargnes';
+    return selected ? selected.value : 'Ne possédez pas d’autres épargnes';
   }
 
   constructor(public dynamicFormService: DynamicFormService) {}

@@ -5,6 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { EmailService } from 'src/app/service/mail.service';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-send',
@@ -15,12 +19,16 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
     InputTextModule,
     ButtonModule,
     ToggleButtonModule,
+    ToastModule,
   ],
+  providers: [EmailService, MessageService],
   templateUrl: './send.component.html',
   styleUrl: './send.component.scss',
 })
 export class SendComponent {
   public contactByPhone = false;
+  public emailError = '';
+  public phoneError = '';
 
   get selectedContactTypeValues(): string {
     const selected = this.dynamicFormService.contactTypeValues.find(
@@ -31,7 +39,12 @@ export class SendComponent {
       ? selected.value
       : 'Être contacté par téléphone par un expert';
   }
-  constructor(public dynamicFormService: DynamicFormService) {
+  constructor(
+    public dynamicFormService: DynamicFormService,
+    private emailService: EmailService,
+    private messageService: MessageService,
+    private router: Router
+  ) {
     setTimeout(() => {
       this.dynamicFormService.progress = 100;
     }, 10);
@@ -42,6 +55,7 @@ export class SendComponent {
       (v) => (v.selected = false)
     );
     value.selected = true;
+    this.contactByPhone = false;
     if (value.value === 'Être contacté par téléphone par un expert') {
       this.contactByPhone = true;
       this.dynamicFormService.disabledNextButton = true;
@@ -57,8 +71,10 @@ export class SendComponent {
       emailRegex.test(this.dynamicFormService.userMail)
     ) {
       this.dynamicFormService.disabledNextButton = false;
+      this.emailError = '';
     } else {
       this.dynamicFormService.disabledNextButton = true;
+      this.emailError = "L'email saisie est invalide";
     }
   }
 
@@ -71,8 +87,30 @@ export class SendComponent {
       phoneRegex.test(this.dynamicFormService.userPhone)
     ) {
       this.dynamicFormService.disabledNextButton = false;
+      this.phoneError = '';
     } else {
       this.dynamicFormService.disabledNextButton = true;
+      this.phoneError = 'Le numéro de telephone est invalide';
     }
+  }
+
+  public send(): void {
+    this.messageService.add({
+      key: 'bc',
+      severity: 'success',
+      summary: 'Success',
+      detail: "Votre demande d'expertise a été envoyée avec succès",
+    });
+    setTimeout(() => {
+      this.router.navigate(['/main']);
+    }, 1000);
+    // this.emailService.sendEmail({}).then(
+    //   (response) => {
+    //     console.log('SUCCESS!', response.status, response.text);
+    //   },
+    //   (err) => {
+    //     console.log('FAILED...', err);
+    //   }
+    // );
   }
 }

@@ -49,7 +49,11 @@ export class PropertyAssetsComponent {
   ngOnInit(): void {
     setTimeout(() => {
       this.dynamicFormService.progress = 60;
-      this.dynamicFormService.disabledNextButton = true;
+      if (this.dynamicFormService.propertyFormIsCompleted) {
+        this.dynamicFormService.disabledNextButton = false;
+      } else {
+        this.dynamicFormService.disabledNextButton = true;
+      }
     }, 10);
   }
 
@@ -102,6 +106,9 @@ export class PropertyAssetsComponent {
       this.dynamicFormService.disabledNextButton = true;
       this.dynamicFormService.isOwner = true;
       this.dynamicFormService.propertyTypeIsSelected = true;
+      this.dynamicFormService.propertyFormIsCompleted = false;
+    } else {
+      this.dynamicFormService.propertyFormIsCompleted = true;
     }
   }
 
