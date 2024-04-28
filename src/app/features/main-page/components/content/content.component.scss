@@ -169,13 +169,11 @@ video {
         &-content {
           display: flex;
           padding: var(--Component-Padding-6xLarge, 64px) 16px;
-          flex-direction: column;
           align-items: flex-start;
           gap: 40px;
           align-self: stretch;
           &-core {
             display: flex;
-            flex-direction: column;
             align-items: center;
             gap: 40px;
             width: auto;
@@ -185,7 +183,6 @@ video {
           &-description {
             display: flex;
             align-items: normal;
-            flex-direction: column;
             gap: 32px;
             height: auto;
             align-self: stretch;
