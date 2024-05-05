@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { DynamicFormService } from './service/dynamic-form.service';
+import { EmailService } from 'src/app/service/mail.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -25,7 +27,9 @@ export class DynamicFormComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public dynamicFormService: DynamicFormService
+    public dynamicFormService: DynamicFormService,
+    private emailService: EmailService,
+    private messageService: MessageService
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -92,5 +96,50 @@ export class DynamicFormComponent implements OnInit {
     }
     this.dynamicFormService.disabledNextButton = false;
     return true;
+  }
+
+  public send(): void {
+    const mailContent =
+      'Votre projet : ' +
+      this.dynamicFormService.myProjectContent +
+      '\n' +
+      this.dynamicFormService.getFamilySituationText() +
+      '\n' +
+      this.dynamicFormService.formatMarriedInfo() +
+      '\n' +
+      this.dynamicFormService.getWorkSituationText() +
+      '\n' +
+      this.dynamicFormService.getPropertyAssetsText() +
+      '\n' +
+      this.dynamicFormService.getOtherPropertiesText() +
+      '\n' +
+      this.dynamicFormService.getFinancialAssetsText() +
+      "\nEmail de l'utilisateur : " +
+      this.dynamicFormService.userMail +
+      " \nNuméro de téléphone de l'utilisateur : " +
+      this.dynamicFormService.userPhone;
+
+    this.messageService.add({
+      key: 'bc',
+      severity: 'success',
+      summary: 'Success',
+      detail: "Votre demande d'expertise a été envoyée avec succès",
+    });
+
+    setTimeout(() => {
+      this.router.navigate(['/main']);
+      setTimeout(() => {
+        window.location.reload();
+      }, 10);
+    }, 1000);
+
+    this.emailService.sendEmail(mailContent).then(
+      (response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      },
+      (err) => {
+        console.log('FAILED...', err);
+      }
+    );
   }
 }

@@ -7,6 +7,9 @@ import { MyProjectComponent } from './components/my-project/my-project.component
 import { TreeModule } from 'primeng/tree';
 import { NodeService } from './service/node.service';
 import { DynamicFormService } from './service/dynamic-form.service';
+import { ToastModule } from 'primeng/toast';
+import { EmailService } from 'src/app/service/mail.service';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [DynamicFormComponent, MyProjectComponent],
@@ -15,8 +18,9 @@ import { DynamicFormService } from './service/dynamic-form.service';
     ButtonModule,
     ProgressBarModule,
     TreeModule,
+    ToastModule,
   ],
   exports: [DynamicFormComponent, MyProjectComponent],
-  providers: [NodeService, DynamicFormService],
+  providers: [NodeService, DynamicFormService, EmailService, MessageService],
 })
 export class DynamicFormModule {}

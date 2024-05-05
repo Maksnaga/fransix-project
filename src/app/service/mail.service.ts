@@ -5,12 +5,12 @@ import emailjs from '@emailjs/browser';
 export class EmailService {
   constructor() {}
 
-  sendEmail(emailData: any): Promise<any> {
-    emailjs.init('loQqD3Y8csFyVTwVd');
-    return emailjs.send('service_de4kx7o', 'template_zvv13h6', {
-      from_name: 'Maxime',
-      to_name: 'Moiroux',
-      message: 'Mon message',
+  sendEmail(emailData: string): Promise<any> {
+    emailjs.init('xG334W6nF7yqbPZvR');
+    return emailjs.send('service_539ju5q', 'template_trnpklr', {
+      from_name: 'Simulateur de projet immobilier',
+      to_name: 'Simulateur',
+      message: emailData,
     });
   }
 }

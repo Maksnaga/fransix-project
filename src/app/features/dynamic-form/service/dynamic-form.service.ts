@@ -312,4 +312,6 @@ export class DynamicFormService {
 
   userMail: string | undefined;
   userPhone: string | undefined;
+
+  disabledSendButton: boolean = true;
 }

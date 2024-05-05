@@ -49,7 +49,6 @@ export class MultipleComponent {
     this.selectedAssuranceType = map?.get('assurances');
     this.amount = map?.get('amount');
     this.selectedBeneficiary = map?.get('beneficiaries');
-    debugger;
 
     this.pelCreationDate = this.dynamicFormService.financialAssetsMap
       .get(this.name)

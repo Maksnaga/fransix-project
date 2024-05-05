@@ -25,5 +25,28 @@
       (click)="next()"
     ></p-button>
   </div>
+  }@else {
+  <div class="send__footer" style="width: 100%">
+    <div>
+      <p class="disclaimer">
+        En soumettant ce formulaire, j’accepte que mes informations soient
+        utilisées exclusivement dans le cadre de ma demande et de la relation
+        commerciale éthique et personnalisée qui pourrait en découler si je le
+        souhaite.
+      </p>
+    </div>
+    <div>
+      <p-button
+        icon="pi pi-send"
+        iconPos="right"
+        severity="help"
+        label="Envoyer"
+        (onClick)="send()"
+        [disabled]="dynamicFormService.disabledSendButton"
+      ></p-button>
+    </div>
+  </div>
   }
 </div>
+
+<p-toast position="bottom-center" key="bc"></p-toast>
