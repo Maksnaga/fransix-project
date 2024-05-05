@@ -27,14 +27,19 @@ export class MyProjectComponent {
     this.dynamicFormService.disabledNextButton = false;
     const formattedText = this.dynamicFormService.selectedNodes
       .map((item: any) => {
-        if (!item.children) return;
         const childrenText = item.children
-          .map((child: any) => `    - ${child.label}`)
-          .join('\n');
-        return `${item.label}:\n${childrenText}`;
+          ? item.children
+              .filter(
+                (child: any) =>
+                  !this.dynamicFormService.selectedNodes.includes(child)
+              )
+              .map((child: any) => `    - ${child.label}`)
+              .join('\n')
+          : '';
+        return `${item.label}${childrenText ? ':\n' + childrenText : ''}`;
       })
       .join('\n');
-    this.dynamicFormService.message = formattedText;
+    this.dynamicFormService.myProjectContent = formattedText;
   }
 
   nodeUnselect(): void {

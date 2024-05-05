@@ -124,6 +124,17 @@ export class MultipleComponent implements OnInit {
     this.isFilled();
   }
 
+  updateCreditPropertiesMap(): void {
+    this.dynamicFormService.creditPropertiesMap.set(this.name, {
+      value: this.monthlyPaiement,
+      ending: this.endingPaiement,
+    });
+  }
+
+  updateRentValue(): void {
+    this.dynamicFormService.rentPropertiesMap.set(this.name, this.rentValue);
+  }
+
   removeProperty(): void {
     this.dynamicFormService.propertiesMap.delete(this.name);
     this.dynamicFormService.creditPropertiesMap.delete(this.name);

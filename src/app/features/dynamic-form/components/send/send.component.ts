@@ -29,6 +29,7 @@ export class SendComponent {
   public contactByPhone = false;
   public emailError = '';
   public phoneError = '';
+  public disabledSendButton = true;
 
   get selectedContactTypeValues(): string {
     const selected = this.dynamicFormService.contactTypeValues.find(
@@ -58,7 +59,7 @@ export class SendComponent {
     this.contactByPhone = false;
     if (value.value === 'Être contacté par téléphone par un expert') {
       this.contactByPhone = true;
-      this.dynamicFormService.disabledNextButton = true;
+      this.disabledSendButton = true;
     }
   }
 
@@ -70,10 +71,10 @@ export class SendComponent {
       this.dynamicFormService.userMail.length > 0 &&
       emailRegex.test(this.dynamicFormService.userMail)
     ) {
-      this.dynamicFormService.disabledNextButton = false;
+      this.disabledSendButton = false;
       this.emailError = '';
     } else {
-      this.dynamicFormService.disabledNextButton = true;
+      this.disabledSendButton = true;
       this.emailError = "L'email saisie est invalide";
     }
   }
@@ -86,24 +87,34 @@ export class SendComponent {
       this.dynamicFormService.userPhone.length > 0 &&
       phoneRegex.test(this.dynamicFormService.userPhone)
     ) {
-      this.dynamicFormService.disabledNextButton = false;
+      this.disabledSendButton = false;
       this.phoneError = '';
     } else {
-      this.dynamicFormService.disabledNextButton = true;
+      this.disabledSendButton = true;
       this.phoneError = 'Le numéro de telephone est invalide';
     }
   }
 
   public send(): void {
+    console.log('Votre projet : ' + this.dynamicFormService.myProjectContent);
+    console.log(this.dynamicFormService.getFamilySituationText());
+    console.log(this.dynamicFormService.formatMarriedInfo());
+    console.log(this.dynamicFormService.getWorkSituationText());
+    console.log(this.dynamicFormService.getPropertyAssetsText());
+    console.log(this.dynamicFormService.getOtherPropertiesText());
+    console.log(this.dynamicFormService.getFinancialAssetsText());
+
     this.messageService.add({
       key: 'bc',
       severity: 'success',
       summary: 'Success',
       detail: "Votre demande d'expertise a été envoyée avec succès",
     });
+
     setTimeout(() => {
       this.router.navigate(['/main']);
     }, 1000);
+
     // this.emailService.sendEmail({}).then(
     //   (response) => {
     //     console.log('SUCCESS!', response.status, response.text);

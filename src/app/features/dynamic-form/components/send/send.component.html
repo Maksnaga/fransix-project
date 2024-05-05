@@ -62,6 +62,7 @@
     severity="help"
     label="Envoyer"
     (onClick)="send()"
+    [disabled]="disabledSendButton"
   ></p-button>
   <p class="disclaimer">
     En soumettant ce formulaire, j’accepte que mes informations soient utilisées

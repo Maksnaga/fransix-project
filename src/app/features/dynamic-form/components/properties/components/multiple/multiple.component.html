@@ -59,6 +59,7 @@
         pInputText
         placeholder="Saisir une valeur"
         [(ngModel)]="monthlyPaiement"
+        (input)="updateCreditPropertiesMap()"
       />
       € par mois qui se termine le
       <p-calendar
@@ -67,6 +68,7 @@
         [iconDisplay]="'input'"
         inputId="endingPayment"
         [showIcon]="true"
+        (onSelect)="updateCreditPropertiesMap()"
       ></p-calendar>
     </div>
     }
@@ -89,6 +91,7 @@
         pInputText
         placeholder="Saisir une valeur"
         [(ngModel)]="rentValue"
+        (input)="updateRentValue()"
       />
       € par an.
     </div>

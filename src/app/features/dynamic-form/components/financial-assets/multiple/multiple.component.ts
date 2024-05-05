@@ -27,6 +27,7 @@ export class MultipleComponent {
   selectedAssuranceType: any;
   amount: any;
   selectedBeneficiary: any;
+  pelCreationDate: Date | undefined;
 
   assurances = [
     { name: 'Une assurance vie', code: 'av' },
@@ -48,6 +49,12 @@ export class MultipleComponent {
     this.selectedAssuranceType = map?.get('assurances');
     this.amount = map?.get('amount');
     this.selectedBeneficiary = map?.get('beneficiaries');
+    debugger;
+
+    this.pelCreationDate = this.dynamicFormService.financialAssetsMap
+      .get(this.name)
+      ?.get('pelCreationDate')?.name;
+
     setTimeout(() => {
       this.isFilled();
       this.dynamicFormService.progress = 95;
@@ -105,7 +112,8 @@ export class MultipleComponent {
       if (
         innerMap.get('assurances')?.name === 'Un PEL' &&
         amountFilled &&
-        this.dynamicFormService.pelCreationDate != null
+        innerMap.has('pelCreationDate') &&
+        innerMap.get('pelCreationDate') !== null
       ) {
         this.dynamicFormService.disabledNextButton = false;
       }
@@ -113,6 +121,9 @@ export class MultipleComponent {
   }
 
   selectPelCreationDate(): void {
+    this.dynamicFormService.financialAssetsMap
+      .get(this.name)
+      ?.set('pelCreationDate', { code: 'date', name: this.pelCreationDate });
     this.isFilled();
   }
 

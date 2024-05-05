@@ -3,6 +3,181 @@ import { TreeNode } from 'primeng/api/treenode';
 
 @Injectable()
 export class DynamicFormService {
+  progress: number = 10;
+  myProjectContent: string = '';
+
+  getFamilySituationText(): string {
+    const selectedValues = this.valuesFamily
+      .filter((item) => item.selected)
+      .map((item) => item.value)
+      .join(', ');
+
+    return selectedValues;
+  }
+
+  formatMarriedInfo(): string {
+    let formattedText = ``;
+
+    if (this.isMarried) {
+      if (this.marriedBirthday) {
+        formattedText += `\nMarié depuis: ${
+          this.marriedBirthday.toISOString().split('T')[0]
+        }`;
+      }
+      const selectedMarriedValues = this.valuesMarried
+        .filter((item) => item.selected)
+        .map((item) => item.value)
+        .join(', ');
+
+      formattedText += `\nRégime matrimonial: ${selectedMarriedValues}`;
+
+      if (this.spouseInformation.firstName || this.spouseInformation.lastName) {
+        formattedText += `\nEpoux/Epouse: ${
+          this.spouseInformation.firstName ?? ''
+        } ${this.spouseInformation.lastName ?? ''}`;
+      }
+
+      if (this.spouseInformation.birthday) {
+        formattedText += `\nEpoux/Epouse né le: ${
+          this.spouseInformation.birthday.toISOString().split('T')[0]
+        }`;
+      }
+    }
+
+    const selectedChildrenValues = this.valuesChildren
+      .filter((item) => item.selected)
+      .map((item) => item.value)
+      .join(', ');
+
+    formattedText += `\nNombre d'enfants: ${selectedChildrenValues}`;
+
+    const selectedDependantChildValues = this.valuesDependantChild
+      .filter((item) => item.selected)
+      .map((item) => item.value)
+      .join(', ');
+
+    formattedText += `\nEnfant à charge: ${selectedDependantChildValues}`;
+
+    return formattedText;
+  }
+
+  getWorkSituationText(): string {
+    let selectedValues = this.valuesWorkSituation
+      .filter((item) => item.selected)
+      .map((item) => item.value)
+      .join(', ');
+
+    let formattedText = `Nom du métier: ${this.workName ?? ''}\nSalaire: ${
+      this.workSalary + ' euros' ?? ''
+    }\nType de métier: ${selectedValues}`;
+
+    if (this.isMarried) {
+      let marriedSelectedValues = this.valuesMarriedWorkSituation
+        .filter((item) => item.selected)
+        .map((item) => item.value)
+        .join(', ');
+
+      formattedText += `\nNom du metier de l'épouse/époux: ${
+        this.marriedWorkName ?? ''
+      }\nSalaire de l'épouse/époux: ${
+        this.marriedWorkSalary + ' euros' ?? ''
+      }\nType de métier de l'épouse/époux: ${marriedSelectedValues}`;
+    }
+
+    return formattedText;
+  }
+
+  getPropertyAssetsText(): string {
+    const selectedValues = this.propertyAssetsValues
+      .filter((item) => item.selected)
+      .map((item) => item.value)
+      .join(', ');
+
+    let formattedText = `Vous êtes: ${selectedValues}`;
+
+    if (this.isOwner) {
+      const propertyType = this.propertyTypeValues
+        .filter((item) => item.selected)
+        .map((item) => item.value)
+        .join(', ');
+
+      const estimate = this.estimateValues
+        .filter((item) => item.selected)
+        .map((item) => item.value)
+        .join(', ');
+
+      const creditInProgressText = this.creditInProgress ? 'Oui' : 'Non';
+      const monthlyPaymentText = this.monthlyPayment
+        ? `${this.monthlyPayment}`
+        : '';
+      const endingPaymentText = this.endingPayment
+        ? `${this.endingPayment.toISOString().split('T')[0]}`
+        : '';
+
+      formattedText += `\nType de propriété: ${propertyType}\nvaleur estimée à: ${estimate}\nCrédit en cours: ${creditInProgressText}\nMensualité de: ${monthlyPaymentText} euros\nSe termine le: ${endingPaymentText}`;
+    }
+
+    return formattedText;
+  }
+
+  getOtherPropertiesText(): string {
+    let formattedText = ``;
+
+    if (this.hasOtherProperties) {
+      this.propertiesMap.forEach((value, key) => {
+        formattedText += `\n${key}`;
+
+        value.forEach((innerValue, innerKey) => {
+          formattedText += `\n  ${innerValue.name}`;
+        });
+      });
+
+      this.creditPropertiesMap.forEach((value, key) => {
+        const valueText = value.value ? `${value.value}` : '';
+        const endingText = value.ending
+          ? `${value.ending.toISOString().split('T')[0]}`
+          : '';
+        formattedText += `\nCrédit en cours: ${key}, Valeur: ${valueText} euros, Fin du crédit: ${endingText}`;
+      });
+
+      this.rentPropertiesMap.forEach((value, key) => {
+        const valueText = value ? `${value}` : '';
+        formattedText += `\nLoyer: ${key}, valeur: ${valueText} euros`;
+      });
+    }
+
+    return formattedText;
+  }
+
+  getFinancialAssetsText(): string {
+    const currentAccountText = this.currentAccount
+      ? `${this.currentAccount}`
+      : '';
+    let formattedText = `Compte courant: ${currentAccountText} euros`;
+
+    if (this.hasOtherFinancialAssets) {
+      this.financialAssetsMap.forEach((value, key) => {
+        formattedText += `\n${key}`;
+
+        value.forEach((innerValue, innerKey) => {
+          if (innerValue.name) {
+            if (innerValue.code === 'date') {
+              formattedText += `\n  Ouvert en: ${
+                innerValue.name.toISOString().split('T')[0]
+              }`;
+            } else {
+              formattedText += `\n  ${innerValue.name}`;
+            }
+          } else {
+            formattedText += `\n  d'un montante de : ${innerValue} euros`;
+          }
+        });
+      });
+    }
+
+    return formattedText;
+  }
+
   selectedNodes!: TreeNode[];
   disabledNextButton = true;
 
@@ -115,19 +290,15 @@ export class DynamicFormService {
   monthlyPayment: number | undefined;
   endingPayment: Date | undefined;
 
-  message: string = '';
-  progress: number = 10;
-
   propetyOwnerIsSelected = false;
   propertyTypeIsSelected = false;
   estimateIsSelected = false;
   propertyFormIsCompleted = false;
 
   hasOtherProperties = false;
-  propertiesMap: Map<string, Map<string, { name: string; code: string }[]>> =
+  propertiesMap: Map<string, Map<string, { name: string; code: string }>> =
     new Map();
-  // creditInProgressMap: Map<string, boolean> = new Map();
-  // rentInProgressMap: Map<string, boolean> = new Map();
+
   creditPropertiesMap: Map<
     string,
     { value: number | undefined; ending: Date | undefined }
@@ -135,12 +306,9 @@ export class DynamicFormService {
   rentPropertiesMap: Map<string, number | undefined> = new Map();
 
   hasOtherFinancialAssets = false;
-  financialAssetsMap: Map<
-    string,
-    Map<string, { name: string; code: string }>
-  > = new Map();
+  financialAssetsMap: Map<string, Map<string, { name: any; code: string }>> =
+    new Map();
   currentAccount: number | undefined;
-  pelCreationDate: Date | undefined;
 
   userMail: string | undefined;
   userPhone: string | undefined;
